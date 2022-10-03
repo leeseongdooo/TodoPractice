@@ -1,0 +1,40 @@
+.HeaderParent {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-height: 50px;
+  background-color: royalblue;
+
+  .Left-Box {
+    margin: 5px;
+    width: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .Icons {
+      margin: 0px 10px;
+      color: white;
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    h2 {
+      color: white;
+    }
+  }
+
+  .InputBox {
+    width: 65%;
+    display: flex;
+    justify-content: left;
+
+    input {
+      width: 500px;
+      padding: 10px;
+      border-radius: 10px;
+      border: none;
+    }
+  }
+}

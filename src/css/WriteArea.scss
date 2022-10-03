@@ -1,0 +1,80 @@
+.WriteArea {
+  //
+  margin-left: 10px;
+  margin-top: 20px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  .WriteForm {
+    width: 99%;
+    border-radius: 5px;
+    background-color: white;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+    min-height: 52px;
+    display: flex;
+    align-items: center;
+  }
+
+  .WriteTopArea {
+    position: relative;
+    z-index: 1;
+
+    input[type="checkbox"] {
+      margin-left: 20px;
+      width: 20px;
+      height: 20px;
+    }
+
+    input[type="text"] {
+      margin-left: 20px;
+      outline: none; // focus됐을때 없애기
+      width: 100%;
+      border: none;
+    }
+  }
+
+  .WriteBottomArea {
+    width: calc(99% - 20px);
+    position: absolute;
+    background-color: #f3f2f1;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    z-index: 0;
+    transition: 0.3s;
+    transform: translateY(50px);
+    display: flex;
+    justify-content: space-between;
+
+    .IconBox {
+      display: flex;
+      align-items: center;
+      width: 102px;
+      margin-left: 20px;
+
+      .Icon {
+        color: gray;
+        margin: 5px;
+        font-size: 20px;
+        cursor: pointer;
+      }
+
+      .Icon:first-child {
+        margin-left: 0px;
+      }
+    }
+
+    button {
+      margin-right: 10px;
+      width: 42px;
+      height: 32px;
+      padding: 5px;
+      border-radius: 5px;
+      border: 1px solid #e1dfdd;
+      background-color: white;
+
+      cursor: pointer;
+    }
+  }
+}

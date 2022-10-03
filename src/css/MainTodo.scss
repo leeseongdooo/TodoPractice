@@ -1,0 +1,141 @@
+.MainTodoFlex {
+  width: 100%;
+  display: flex;
+  min-height: calc(100vh - 50px);
+
+  .MainTodoBox {
+    width: calc(100% - 20px);
+    padding: 10px;
+    position: relative;
+    height: 100%;
+    .TopArea {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-left: 10px;
+      h3 {
+        font-size: 2erm;
+        color: #323130;
+        line-height: 0px;
+      }
+
+      .DateString {
+        font-size: 1.2erm;
+        color: #797775;
+      }
+
+      // 상단의 아이콘 박스입니다.
+      .IconBox {
+        text-align: center;
+        line-height: center;
+        .Icon {
+          font-size: 20px;
+          color: #797775;
+
+          cursor: pointer;
+        }
+
+        span {
+          font-size: 16px;
+          color: #797775;
+          margin: 5px;
+        }
+      }
+    }
+
+    .ListFormArea {
+      margin-top: 10px;
+      width: 99%;
+      border-radius: 5px;
+      background-color: white;
+      box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+      min-height: 52px;
+      display: flex;
+      align-items: center;
+      transition: 0.4s;
+      cursor: pointer;
+
+      input[type="checkbox"] {
+        margin-left: 20px;
+        width: 20px;
+        height: 20px;
+      }
+
+      span {
+        margin-left: 20px;
+        outline: none; // focus됐을때 없애기
+        width: 100%;
+        border: none;
+      }
+    }
+  }
+
+  .RightSideArea {
+    background-color: #faf9f8;
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.5);
+    padding: 10px 20px;
+    width: 20%;
+    max-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: 0.3s;
+    .ButtonParentBox {
+      span {
+        font-size: 14px;
+        font-weight: 500;
+      }
+
+      .Group {
+        margin-bottom: 10px;
+      }
+
+      .Solo {
+        margin-bottom: 10px;
+      }
+
+      .Button {
+        width: 100%;
+        padding: 10px 5px;
+        background-color: white;
+        display: flex;
+        align-items: center;
+        min-height: 20px;
+
+        input[type="checkbox"] {
+          margin: 5px;
+          width: 15px;
+          height: 15px;
+        }
+
+        span {
+          margin-left: 15px;
+        }
+        cursor: pointer;
+      }
+
+      .Icon {
+        width: 20px;
+        height: 20px;
+        margin: 5px;
+      }
+    }
+
+    .BottomArea {
+      border-top: 1px solid rgba(0, 0, 0, 0.5);
+      padding: 10px;
+      align-items: center;
+      display: flex;
+      justify-content: space-between;
+
+      span {
+        font-size: 16px;
+      }
+
+      .Icon {
+        cursor: pointer;
+        font-size: 18px;
+      }
+    }
+  }
+}
