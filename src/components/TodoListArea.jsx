@@ -7,16 +7,28 @@ export function ListForm({ todoname, Info }) {
   const [todolist, setTodoList, onCreate, donelist, setDoneList] =
     useContext(TodoContext);
 
+  const sortId = () => {
+    for(let i=0; i < todolist.length; i++)
+    {
+      if(todolist[i].id > Info.id)
+      {
+        todolist[i].id -= 1;
+        setTodoList(todolist);
+        console.log(todolist);
+      }
+    }
+  }
+
   // checkBoxClick함수.
   const CheckBoxClick = () => {
     todolist[Info.id - 1].finish = !todolist[Info.id - 1].finish;
-    const AfterFilter = todolist.filter((Info) => Info.filter === true);
-    setTodoList(AfterFilter);
-
+    sortId();
+    setTodoList(todolist.filter((Info) => Info.finish === false));
+    
     setDoneList([
       ...donelist,
       {
-        id: donelist.length,
+        id: donelist.length + 1,
         todoname: Info.todoname,
         finish: Info.finish,
       },
@@ -24,8 +36,9 @@ export function ListForm({ todoname, Info }) {
   };
 
   useEffect(() => {
-    console.log(donelist);
-  }, [donelist]);
+    // console.log(donelist);
+    console.log(todolist);
+  }, [donelist, todolist]);
 
   return (
     <div
@@ -36,6 +49,7 @@ export function ListForm({ todoname, Info }) {
     >
       <input
         type="checkbox"
+
         onClick={(e) => {
           CheckBoxClick();
         }}
