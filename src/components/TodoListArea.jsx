@@ -1,17 +1,11 @@
 import React, { useContext, useEffect, useState } from "react";
 import { BsChevronDoubleRight } from "react-icons/bs";
-import { BiSort, BiExit } from "react-icons/bi";
-import {
-  AiOutlinePlus,
-  AiOutlineBell,
-  AiOutlinePaperClip,
-} from "react-icons/ai";
-
 import "../css/TodoListArea.scss";
 import { TodoContext } from "./Store";
+import { RightSide } from "./Context/RightSide";
 import { GrCheckbox, GrCheckboxSelected } from "react-icons/gr";
 
-export function ListForm({ todoname, Info }) {
+export function ListForm({ todoname, Info, setRightSide }) {
   const [todolist, setTodoList, onCreate, donelist, setDoneList] =
     useContext(TodoContext);
 
@@ -50,7 +44,7 @@ export function ListForm({ todoname, Info }) {
     <div
       className="ListFormArea"
       onClick={(e) => {
-        console.log("세부정보가 나와야 합니다.");
+        setRightSide(true);
       }}
     >
       {Info.finish !== true ? (
@@ -68,7 +62,7 @@ export function ListForm({ todoname, Info }) {
   );
 }
 
-function TodoListArea() {
+function TodoListArea({ RightSide, setRightSide }) {
   const [todolist] = useContext(TodoContext);
 
   useEffect(() => {});
@@ -86,7 +80,13 @@ function TodoListArea() {
       </div>
 
       {todolist.map((Info) => (
-        <ListForm key={Info.id} todoname={Info.todoname} Info={Info} />
+        <ListForm
+          key={Info.id}
+          todoname={Info.todoname}
+          Info={Info}
+          RightSide={RightSide}
+          setRightSide={setRightSide}
+        />
       ))}
     </div>
   );

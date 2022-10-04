@@ -75,7 +75,6 @@
     .ListParentArea {
       margin-top: 60px;
       width: 100%;
-      border: 1px solid black;
       max-height: 500px;
       overflow-y: scroll;
     }
@@ -88,7 +87,7 @@
     padding: 10px 20px;
     width: 400px;
     flex: 1;
-    display: flex;
+    display: none;
     flex-direction: column;
     justify-content: space-between;
     .ButtonParentBox {

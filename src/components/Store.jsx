@@ -1,4 +1,5 @@
 import React, { useState, createContext } from "react";
+import { RightSideContext } from "./Context/RightSide";
 import MainTodo from "./MainTodo";
 import Header from "./Header";
 
@@ -7,6 +8,7 @@ export const TodoContext = createContext();
 function Store() {
   const [todolist, setTodoList] = useState([]); // todolist를 저장할 변수.
   const [donelist, setDoneList] = useState([]);
+  const [RightSideChecked, setRightSideChecked] = useState(false);
 
   const onCreate = (todoName) => {
     setTodoList([
@@ -20,14 +22,14 @@ function Store() {
   };
 
   return (
-    <>
+    <RightSideContext.Provider value={[RightSideChecked, setRightSideChecked]}>
       <TodoContext.Provider
         value={[todolist, setTodoList, onCreate, donelist, setDoneList]}
       >
         <Header />
         <MainTodo />
       </TodoContext.Provider>
-    </>
+    </RightSideContext.Provider>
   );
 }
 
