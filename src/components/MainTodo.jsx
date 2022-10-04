@@ -2,7 +2,6 @@ import React, { useState, useContext, useEffect } from "react";
 import {
   BsLightbulb,
   BsArrowRepeat,
-  BsChevronDoubleRight,
   BsSun,
   BsCalendarDate,
   BsTrash,
@@ -19,6 +18,7 @@ import "../css/MainTodo.scss";
 import { TodoContext } from "./Store";
 import DoneListArea from "./DoneListArea";
 // 투두리스트의 상세정보를 보여주는 Component 입니다.
+
 function RightSide({}) {
   return (
     <div className="RightSideArea">
@@ -100,8 +100,11 @@ function MainTodo() {
           </div>
         </div>
         <WriteArea />
-        <TodoListArea />
-        <DoneListArea />
+
+        <div className="ListParentArea">
+          <TodoListArea />
+          <DoneListArea />
+        </div>
       </div>
       <RightSide />
     </div>

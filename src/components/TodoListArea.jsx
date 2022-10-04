@@ -1,5 +1,12 @@
 import React, { useContext, useEffect, useState } from "react";
 import { BsChevronDoubleRight } from "react-icons/bs";
+import { BiSort, BiExit } from "react-icons/bi";
+import {
+  AiOutlinePlus,
+  AiOutlineBell,
+  AiOutlinePaperClip,
+} from "react-icons/ai";
+
 import "../css/TodoListArea.scss";
 import { TodoContext } from "./Store";
 import { GrCheckbox, GrCheckboxSelected } from "react-icons/gr";
