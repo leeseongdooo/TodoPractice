@@ -16,6 +16,14 @@
     }
   }
 
+  .ListFormArea {
+    .Icon {
+      min-width: 20px;
+      min-height: 20px;
+      margin-left: 20px;
+    }
+  }
+
   // hover시 배경색 변경.
   .ListFormArea:hover {
     background-color: rgba(219, 219, 219, 0.5);

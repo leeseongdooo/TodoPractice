@@ -2,29 +2,28 @@ import React, { useContext, useEffect, useState } from "react";
 import { BsChevronDoubleRight } from "react-icons/bs";
 import "../css/TodoListArea.scss";
 import { TodoContext } from "./Store";
+import { GrCheckbox, GrCheckboxSelected } from "react-icons/gr";
 
 export function ListForm({ todoname, Info }) {
   const [todolist, setTodoList, onCreate, donelist, setDoneList] =
     useContext(TodoContext);
 
   const sortId = () => {
-    for(let i=0; i < todolist.length; i++)
-    {
-      if(todolist[i].id > Info.id)
-      {
+    for (let i = 0; i < todolist.length; i++) {
+      if (todolist[i].id > Info.id) {
         todolist[i].id -= 1;
         setTodoList(todolist);
         console.log(todolist);
       }
     }
-  }
+  };
 
   // checkBoxClick함수.
   const CheckBoxClick = () => {
     todolist[Info.id - 1].finish = !todolist[Info.id - 1].finish;
     sortId();
     setTodoList(todolist.filter((Info) => Info.finish === false));
-    
+
     setDoneList([
       ...donelist,
       {
@@ -47,13 +46,16 @@ export function ListForm({ todoname, Info }) {
         console.log("세부정보가 나와야 합니다.");
       }}
     >
-      <input
-        type="checkbox"
-
-        onClick={(e) => {
-          CheckBoxClick();
-        }}
-      />
+      {Info.finish !== true ? (
+        <GrCheckbox
+          onClick={(e) => {
+            CheckBoxClick();
+          }}
+          className="CheckBoxIcon"
+        />
+      ) : (
+        <GrCheckboxSelected className="CheckBoxIcon" />
+      )}
       <span>{todoname}</span>
     </div>
   );

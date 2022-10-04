@@ -2,7 +2,7 @@ import React, { useRef, useState, useContext, useEffect } from "react";
 import { BsCalendarDate, BsBroadcast } from "react-icons/bs";
 import "../css/WriteArea.scss";
 import { TodoContext } from "./Store";
-
+import { GrCheckbox } from "react-icons/gr";
 // 아래 아이콘, 추가버튼 영역.
 function WriteAreaBottom({ test }) {
   return (
@@ -39,7 +39,7 @@ function WriteArea() {
   return (
     <div className="WriteArea">
       <div className="WriteForm WriteTopArea">
-        <input type="checkbox" />
+        <GrCheckbox className="CheckBoxIcon" />
         <input
           type="text"
           placeholder="TODO 추가"
