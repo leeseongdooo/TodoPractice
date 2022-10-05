@@ -2,13 +2,17 @@ import React, { useContext, useEffect, useState } from "react";
 import { BsChevronDoubleRight } from "react-icons/bs";
 import "../css/TodoListArea.scss";
 import { TodoContext } from "./Store";
-import { RightSide } from "./Context/RightSide";
+import {RightSideContext} from "./Context/RightSide";
 import { GrCheckbox, GrCheckboxSelected } from "react-icons/gr";
 
-export function ListForm({ todoname, Info, setRightSide }) {
+export function ListForm({ todoname, Info, }) {
+
+  const [RightSideChecked, setRightSideChecked, RightSideInfo, setRightSideInfo] = useContext(RightSideContext);
+
   const [todolist, setTodoList, onCreate, donelist, setDoneList] =
     useContext(TodoContext);
 
+    // id 정렬.
   const sortId = () => {
     for (let i = 0; i < todolist.length; i++) {
       if (todolist[i].id > Info.id) {
@@ -36,15 +40,15 @@ export function ListForm({ todoname, Info, setRightSide }) {
   };
 
   useEffect(() => {
-    // console.log(donelist);
-    console.log(todolist);
+    console.log(donelist);
   }, [donelist, todolist]);
 
   return (
     <div
       className="ListFormArea"
       onClick={(e) => {
-        setRightSide(true);
+        setRightSideChecked(true);
+        setRightSideInfo(Info);
       }}
     >
       {Info.finish !== true ? (
@@ -62,10 +66,8 @@ export function ListForm({ todoname, Info, setRightSide }) {
   );
 }
 
-function TodoListArea({ RightSide, setRightSide }) {
+function TodoListArea() {
   const [todolist] = useContext(TodoContext);
-
-  useEffect(() => {});
 
   return (
     <div className="TodoListArea">
@@ -84,8 +86,6 @@ function TodoListArea({ RightSide, setRightSide }) {
           key={Info.id}
           todoname={Info.todoname}
           Info={Info}
-          RightSide={RightSide}
-          setRightSide={setRightSide}
         />
       ))}
     </div>

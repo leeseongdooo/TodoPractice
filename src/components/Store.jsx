@@ -7,7 +7,8 @@ export const TodoContext = createContext();
 
 function Store() {
   const [todolist, setTodoList] = useState([]); // todolist를 저장할 변수.
-  const [donelist, setDoneList] = useState([]);
+  const [donelist, setDoneList] = useState([]); // donelist를 지정할 변수
+  const [RightSideInfo, setRightSideInfo] = useState({});
   const [RightSideChecked, setRightSideChecked] = useState(false);
 
   const onCreate = (todoName) => {
@@ -22,7 +23,7 @@ function Store() {
   };
 
   return (
-    <RightSideContext.Provider value={[RightSideChecked, setRightSideChecked]}>
+    <RightSideContext.Provider value={[RightSideChecked, setRightSideChecked, RightSideInfo, setRightSideInfo]}>
       <TodoContext.Provider
         value={[todolist, setTodoList, onCreate, donelist, setDoneList]}
       >

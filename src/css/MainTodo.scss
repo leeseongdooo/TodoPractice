@@ -75,77 +75,13 @@
     .ListParentArea {
       margin-top: 60px;
       width: 100%;
-      max-height: 500px;
+      max-height: 700px; // PC일 때 이정도가 적당 1920 * 1080 // 맥북일댄 수정 필요.
       overflow-y: scroll;
-    }
-  }
-
-  .RightSideArea {
-    right: 0;
-    background-color: #faf9f8;
-    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.5);
-    padding: 10px 20px;
-    width: 400px;
-    flex: 1;
-    display: none;
-    flex-direction: column;
-    justify-content: space-between;
-    .ButtonParentBox {
-      span {
-        font-size: 14px;
-        font-weight: 500;
-      }
-
-      .Group {
-        margin-bottom: 10px;
-      }
-
-      .Solo {
-        margin-bottom: 10px;
-      }
-
-      .Button {
-        width: 100%;
-        padding: 10px 5px;
-        background-color: white;
-        display: flex;
-        align-items: center;
-        min-height: 20px;
-
-        input[type="checkbox"] {
-          margin: 5px;
-          width: 15px;
-          height: 15px;
-        }
-
-        span {
-          margin-left: 15px;
-        }
-        cursor: pointer;
-      }
-
-      .Icon {
-        width: 20px;
-        height: 20px;
-        margin: 5px;
-      }
+      overflow-x: hidden;
     }
 
-    .BottomArea {
-      border-top: 1px solid rgba(0, 0, 0, 0.5);
-      padding: 10px;
-      align-items: center;
-      display: flex;
-      justify-content: space-between;
-
-      span {
-        font-size: 16px;
-      }
-
-      .Icon {
-        cursor: pointer;
-        font-size: 18px;
-      }
+    .ListParentArea::-webkit-scrollbar {
+      display: none;
     }
   }
 }
