@@ -25,16 +25,9 @@ function WriteAreaBottom({ test }) {
 }
 
 function WriteArea() {
-  const [focusBool, setFocusBool] = useState(false);
+  const [focusBool, setFocusBool] = useState(false); // 클릭했다면 true로 변경 후 WriteAreaBottom이 나오도록 설정.
   const [todolist, setTodoList, onCreate, donelist] = useContext(TodoContext);
   const [inputText, setInputText] = useState(""); // 사용자가 입력하는 value값.
-  //   const onCreate = (todoName) => {
-  //
-  //   };
-
-  useEffect(() => {
-    console.log(todolist);
-  }, [todolist]);
 
   return (
     <div className="WriteArea">

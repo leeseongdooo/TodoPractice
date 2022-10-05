@@ -2,17 +2,22 @@ import React, { useContext, useEffect, useState } from "react";
 import { BsChevronDoubleRight } from "react-icons/bs";
 import "../css/TodoListArea.scss";
 import { TodoContext } from "./Store";
-import {RightSideContext} from "./Context/RightSide";
+import { RightSideContext } from "./Context/RightSide";
 import { GrCheckbox, GrCheckboxSelected } from "react-icons/gr";
 
-export function ListForm({ todoname, Info, }) {
-
-  const [RightSideChecked, setRightSideChecked, RightSideInfo, setRightSideInfo] = useContext(RightSideContext);
+export function ListForm({ Info }) {
+  const [
+    RightSideChecked,
+    setRightSideChecked,
+    RightSideInfo,
+    setRightSideInfo,
+    todoname,
+  ] = useContext(RightSideContext);
 
   const [todolist, setTodoList, onCreate, donelist, setDoneList] =
     useContext(TodoContext);
 
-    // id 정렬.
+  // id 정렬.
   const sortId = () => {
     for (let i = 0; i < todolist.length; i++) {
       if (todolist[i].id > Info.id) {
@@ -40,8 +45,9 @@ export function ListForm({ todoname, Info, }) {
   };
 
   useEffect(() => {
-    console.log(donelist);
-  }, [donelist, todolist]);
+    console.log("48");
+    console.log(todolist);
+  });
 
   return (
     <div
@@ -61,13 +67,26 @@ export function ListForm({ todoname, Info, }) {
       ) : (
         <GrCheckboxSelected className="CheckBoxIcon" />
       )}
-      <span>{todoname}</span>
+      <span>{todolist[Info.id - 1].todoname}</span>
     </div>
   );
 }
 
 function TodoListArea() {
-  const [todolist] = useContext(TodoContext);
+  const [todolist, setTodoList] = useContext(TodoContext);
+  const [
+    RightSideChecked, // div를 클릭여부 BOOL
+    setRightSideChecked,
+    RightSideInfo, // 클릭한 div의 정보
+    setRightSideInfo,
+    todoname,
+  ] = useContext(RightSideContext);
+
+  useEffect(() => {
+    console.log("86");
+    // console.log(todoname);
+    console.log(todolist);
+  }, [todoname]);
 
   return (
     <div className="TodoListArea">
@@ -75,18 +94,13 @@ function TodoListArea() {
         className="TopIntroduceArea"
         style={todolist.length === 0 ? { display: "none" } : {}}
       >
-        {" "}
         {/* TodoListArea에서 Todo의 영역이라 알려주는 텍스트가 들어갑니다.*/}
         <BsChevronDoubleRight />
         <span>TODOLIST</span>
       </div>
 
       {todolist.map((Info) => (
-        <ListForm
-          key={Info.id}
-          todoname={Info.todoname}
-          Info={Info}
-        />
+        <ListForm key={Info.id} Info={Info} />
       ))}
     </div>
   );
