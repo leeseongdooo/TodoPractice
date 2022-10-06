@@ -1,11 +1,13 @@
-import React, { useRef, useState, useContext, useEffect } from "react";
+import "../css/WriteArea.scss"; // WriteArea.scss
+import "../../node_modules/react-calendar/dist/Calendar.css"; // calender css.
+import React, { useState, useContext, useEffect } from "react"; // react
+// react-icons
 import { BsCalendarDate, BsBroadcast } from "react-icons/bs";
-import "../css/WriteArea.scss";
-import { TodoContext } from "./Store";
 import { GrCheckbox } from "react-icons/gr";
-import moment from "moment";
+// Context
+import { TodoContext } from "./Store";
+// LiBrary
 import Calendar from "react-calendar";
-import "react-calendar/dist/Calendar.css";
 
 function MiniCalendar({ CalendarClick }) {
   const [
@@ -18,15 +20,16 @@ function MiniCalendar({ CalendarClick }) {
   ] = useContext(TodoContext);
 
   const [value, onChange] = useState(new Date());
-
   const EditDeadLine = value.toLocaleDateString("ko-KR", {
     weekday: "long",
     month: "short",
     day: "numeric",
-  });
+  }); // value값을 형변환 해준다.
 
-  console.log(EditDeadLine);
-  setDateString(EditDeadLine);
+  useEffect(() => {
+    setDateString(EditDeadLine); // 수정한 값으로 저장될 수 있도록 설정.
+  }, [value]);
+
   return (
     <div
       className="MiniCalendar"
@@ -55,21 +58,21 @@ function WriteAreaBottom({ test, CalendarClick, setCalendarClick }) {
           <BsCalendarDate
             className="Icon"
             onClick={() => {
-              setCalendarClick(!CalendarClick);
+              setCalendarClick(!CalendarClick); // 캘린더 아이콘 누를 시 CalendarClick이 현재 값과 반대로 바뀌며 true일 시 Calendar가 화면에 보입니다.
             }}
           />
           <BsBroadcast className="Icon" />
         </div>
         <button>추가</button>
       </div>
-
-      <MiniCalendar CalendarClick={CalendarClick} />
+      <MiniCalendar CalendarClick={CalendarClick} /> {/* props로 값 전달. */}
     </>
   );
 }
 
 function WriteArea({ Today }) {
   const [focusBool, setFocusBool] = useState(false); // 클릭했다면 true로 변경 후 WriteAreaBottom이 나오도록 설정.
+
   const [
     todolist,
     setTodoList,
@@ -77,13 +80,14 @@ function WriteArea({ Today }) {
     donelist,
     setDoneList,
     setDateString,
-  ] = useContext(TodoContext);
+  ] = useContext(TodoContext); // TodoContext 값 가져오기.
+
   const [inputText, setInputText] = useState(""); // 사용자가 입력하는 value값.
-  const [CalendarClick, setCalendarClick] = useState(false);
+  const [CalendarClick, setCalendarClick] = useState(false); // 캘린더 아이콘 클릭 여부
   return (
     <div className="WriteArea">
       <div className="WriteForm WriteTopArea">
-        <GrCheckbox className="CheckBoxIcon" />
+        <GrCheckbox className="CheckBoxIcon" /> {/* 체크박스[체크 전] 아이콘 */}
         <input
           type="text"
           placeholder="TODO 추가"
@@ -98,13 +102,13 @@ function WriteArea({ Today }) {
             if (e.keyCode == 13) {
               onCreate(e.target.value);
               setInputText("");
-              setCalendarClick(false);
               setDateString(Today);
-              console.log(Today);
+              setCalendarClick(false);
             }
           }}
         />
       </div>
+
       <WriteAreaBottom
         test={focusBool}
         setCalendarClick={setCalendarClick}

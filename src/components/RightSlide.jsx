@@ -1,24 +1,20 @@
-import React, { useContext, useEffect, useState } from "react";
-import {
-  BsLightbulb,
-  BsArrowRepeat,
-  BsSun,
-  BsCalendarDate,
-  BsTrash,
-} from "react-icons/bs";
-import { BiSort, BiExit } from "react-icons/bi";
+import "../css/RightSlide.scss"; // css
+// react
+import React, { useContext, useEffect } from "react";
+// react-icons.
+import { BsArrowRepeat, BsSun, BsCalendarDate, BsTrash } from "react-icons/bs";
+import { BiExit } from "react-icons/bi";
 import {
   AiOutlinePlus,
   AiOutlineBell,
   AiOutlinePaperClip,
 } from "react-icons/ai";
-import "../css/RightSlide.scss";
+// Context.
 import { TodoContext } from "./Store";
 import { RightSideContext } from "./Context/RightSide";
 
-// RightSlide는 todolist를 클릭시 클릭한 todo에 세부정보가 나오며 수정, 삭제를 할 수 있습니다.
 export function RightSlide() {
-  // Store.jsx에서 값을 가져옵니다.
+  // TodoContext에서 값을 가져옵니다.
   const [todolist, setTodoList] = useContext(TodoContext);
 
   const [
@@ -84,23 +80,23 @@ export function RightSlide() {
         <div className="Group">
           <div className="Button">
             <AiOutlineBell className="Icon" />
-            <span>투두명.</span>
+            <span>지정된 알림 없음</span>
           </div>
 
           <div className="Button">
             <BsCalendarDate className="Icon" />
-            <span>투두명.</span>
+            <span>{RightSideInfo.deadline}</span>
           </div>
 
           <div className="Button">
             <BsArrowRepeat className="Icon" />
-            <span>투두명.</span>
+            <span>반복</span>
           </div>
         </div>
 
         <div className="Button Solo">
           <AiOutlinePaperClip className="Icon" />
-          <span>투두명.</span>
+          <span></span>
         </div>
       </div>
 

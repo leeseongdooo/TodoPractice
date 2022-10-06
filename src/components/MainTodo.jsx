@@ -1,20 +1,18 @@
-import React, { useState, useContext, useEffect } from "react";
+import "../css/MainTodo.scss"; // MainTodo css
+// React-Icons.
+import { BiSort } from "react-icons/bi";
 import { BsLightbulb } from "react-icons/bs";
-import { BiSort, BiExit } from "react-icons/bi";
-
+// Component
 import WriteArea from "./WriteArea";
 import TodoListArea from "./TodoListArea";
-import "../css/MainTodo.scss";
-import { TodoContext } from "./Store";
 import DoneListArea from "./DoneListArea";
-import { RightSideContext } from "./Context/RightSide";
 import { RightSlide } from "./RightSlide";
-// 투두리스트의 상세정보를 보여주는 Component 입니다.
+// React.
+import React from "react";
 
 function MainTodo() {
-  const myDate = new Date(); // new Date = 날짜를 가져온다
-
-  let DateString = myDate.toLocaleDateString("ko-KR", {
+  const Today = new Date();
+  let TodayString = Today.toLocaleDateString("ko-KR", {
     weekday: "long",
     month: "short",
     day: "numeric",
@@ -22,11 +20,14 @@ function MainTodo() {
 
   return (
     <div className="MainTodoFlex">
+      {/* MainTodoFlex = Main영역의 가장 큰 div. */}
+      {/* 여기에 사이드 메뉴가 들어가면 될듯. */}
       <div className="MainTodoBox">
+        {/* TopArea는 오늘의 날짜 정보, 정렬 기능이 있습니다. */}
         <div className="TopArea">
           <div>
             <h3>오늘의 TODO</h3>
-            <span className="DateString">{DateString}</span>
+            <span className="TodayString">{TodayString}</span>
           </div>
 
           <div className="IconBox">
@@ -36,13 +37,16 @@ function MainTodo() {
             <span className="Plan">일정 계획</span>
           </div>
         </div>
-        <WriteArea Today={DateString} />
+        {/* WriteArea는 새로운 TODO의 TODO명, 날짜, 알림설정을 할 수 있는 영역입니다. */}
+        <WriteArea Today={TodayString} />
 
+        {/* WriteArea에서 작성한 정보는 TODOListArea, DoneListArea에 값이 전달된 후 화면에 출력됩니다. */}
         <div className="ListParentArea">
           <TodoListArea />
           <DoneListArea />
         </div>
       </div>
+      {/* RightSlide는 오른쪽 슬라이드 메뉴바[수정기능이 있는]를 담당합니다. */}
       <RightSlide />
     </div>
   );
