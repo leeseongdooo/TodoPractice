@@ -16,8 +16,9 @@ import "../css/RightSlide.scss";
 import { TodoContext } from "./Store";
 import { RightSideContext } from "./Context/RightSide";
 
+// RightSlide는 todolist를 클릭시 클릭한 todo에 세부정보가 나오며 수정, 삭제를 할 수 있습니다.
 export function RightSlide() {
-  // todolist 목록.
+  // Store.jsx에서 값을 가져옵니다.
   const [todolist, setTodoList] = useContext(TodoContext);
 
   const [
@@ -30,12 +31,11 @@ export function RightSlide() {
     onChange,
   ] = useContext(RightSideContext);
 
-  // Enter 이벤트.
+  // Enter 이벤트 (수정)
   const todonameKeyDown = (e) => {
     if (e.keyCode === 13) {
-      todolist[RightSideInfo.id - 1].todoname = todoname;
-      setTodoList([...todolist]);
-      console.log(todolist);
+      todolist[RightSideInfo.id - 1].todoname = todoname; // todolist[선택한Todo].투두명 = 수정할 이름.
+      setTodoList([...todolist]); // setTodoList로 수정한 값 업데이트.
     }
   };
 
@@ -48,7 +48,7 @@ export function RightSlide() {
     <div
       className="RightSideArea"
       style={
-        RightSideChecked === true ? { display: "flex" } : { display: "none" } // div클릭 했다면 화면이 보이고 아니면 안보이게.
+        RightSideChecked === true ? { display: "flex" } : { display: "none" } // div클릭 했다면 RightSideChecked가 true가 되고 화면에 출력됩니다.
       }
     >
       {/* 전체 버튼을 감싸는 div */}

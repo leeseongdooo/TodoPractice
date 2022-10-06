@@ -20,8 +20,6 @@ function MainTodo() {
     day: "numeric",
   }); // 변수에 오늘의 날짜를 String식으로.
 
-  const [RightSideChecked, setRightSideChecked] = useContext(RightSideContext);
-
   return (
     <div className="MainTodoFlex">
       <div className="MainTodoBox">
@@ -38,7 +36,7 @@ function MainTodo() {
             <span className="Plan">일정 계획</span>
           </div>
         </div>
-        <WriteArea />
+        <WriteArea Today={DateString} />
 
         <div className="ListParentArea">
           <TodoListArea />

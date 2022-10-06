@@ -12,6 +12,16 @@ function Store() {
   const [RightSideChecked, setRightSideChecked] = useState(false);
   const [todoname, setTodoname] = useState("");
 
+  const Today = new Date();
+
+  let [DateString, setDateString] = useState(
+    Today.toLocaleDateString("ko-KR", {
+      weekday: "long",
+      month: "short",
+      day: "numeric",
+    })
+  ); // 변수에 오늘의 날짜를 String식으로.
+
   const onCreate = (todoName) => {
     setTodoList([
       ...todolist,
@@ -19,6 +29,7 @@ function Store() {
         id: todolist.length + 1,
         todoname: todoName,
         finish: false,
+        deadline: DateString,
       },
     ]);
   };
@@ -35,7 +46,14 @@ function Store() {
       ]}
     >
       <TodoContext.Provider
-        value={[todolist, setTodoList, onCreate, donelist, setDoneList]}
+        value={[
+          todolist,
+          setTodoList,
+          onCreate,
+          donelist,
+          setDoneList,
+          setDateString,
+        ]}
       >
         <Header />
         <MainTodo />

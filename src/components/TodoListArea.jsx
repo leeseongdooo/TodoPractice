@@ -67,7 +67,8 @@ export function ListForm({ Info }) {
       ) : (
         <GrCheckboxSelected className="CheckBoxIcon" />
       )}
-      <span>{todolist[Info.id - 1].todoname}</span>
+      <span>{Info.todoname}</span>
+      <span>{Info.deadline}</span>
     </div>
   );
 }
@@ -83,8 +84,6 @@ function TodoListArea() {
   ] = useContext(RightSideContext);
 
   useEffect(() => {
-    console.log("86");
-    // console.log(todoname);
     console.log(todolist);
   }, [todoname]);
 

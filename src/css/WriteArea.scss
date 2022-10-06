@@ -21,7 +21,7 @@
 
   .WriteTopArea {
     position: relative;
-    z-index: 1;
+    z-index: 2;
 
     input[type="checkbox"] {
       margin-left: 20px;
@@ -43,7 +43,7 @@
     background-color: #f3f2f1;
     border-top-left-radius: 0px;
     border-top-right-radius: 0px;
-    z-index: 0;
+    z-index: 1;
     transition: 0.3s;
     transform: translateY(50px);
     display: flex;
@@ -78,5 +78,15 @@
 
       cursor: pointer;
     }
+  }
+
+  .MiniCalendar {
+    position: absolute;
+    overflow: hidden;
+    top: 105px;
+    z-index: 0;
+    display: none;
+    transition: 0.3s;
+    width: 300px;
   }
 }
