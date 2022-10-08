@@ -16,8 +16,11 @@ function DoneListArea() {
     <div className="DoneListArea">
       <div style={donelist.length === 0 ? { display: "none" } : {}}>
         {/* donelist가 0이면 보이지 않고 0보다 크다면 보이게 설정.*/}
-        <BsChevronDoubleRight />
-        <span> DONE</span>
+        <div className="TopIntroduceArea">
+          <BsChevronDoubleRight />
+          <span>DONE</span>
+        </div>
+       
         {/* DoneList에 있는 값을 map돌아서 화면에 출력합니다. */}
         {donelist.map((Info) => (
           <ListForm key={Info.id} todoname={Info.todoname} Info={Info} />

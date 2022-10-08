@@ -55,6 +55,25 @@
         height: 20px;
         margin: 5px;
       }
+
+      .RightSlideCalendar {
+        max-width: 100%;
+        background-color: rgb(230, 230, 230);
+        .calendar {
+          background-color: rgb(230, 230, 230);
+          border: none;
+          position: relative;
+          width: 100%;
+        }
+
+        .EditDateButton {
+          position: relative;
+          right: 0;
+          margin-top: 10px;
+          padding: 5px;
+          border-radius: 10px;
+        }
+      }
     }
 
     .BottomArea {

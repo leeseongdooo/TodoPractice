@@ -40,6 +40,7 @@ export function ListForm({ Info }) {
         id: donelist.length + 1,
         todoname: Info.todoname,
         finish: Info.finish,
+        deadline: Info.deadline
       },
     ]);
   };
@@ -67,8 +68,11 @@ export function ListForm({ Info }) {
       ) : (
         <GrCheckboxSelected className="CheckBoxIcon" />
       )}
-      <span>{Info.todoname}</span>
-      <span>{Info.deadline}</span>
+
+      <div className="TodolistInfoText">
+        <span className="TodoNameText">{Info.todoname}</span>
+        <span className="DeadLineText">{Info.deadline}</span>
+      </div>
     </div>
   );
 }

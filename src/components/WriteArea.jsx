@@ -99,7 +99,7 @@ function WriteArea({ Today }) {
             setInputText(e.target.value);
           }}
           onKeyDown={(e) => {
-            if (e.keyCode == 13) {
+            if (e.keyCode == 13 && inputText.length !== 0) {
               onCreate(e.target.value);
               setInputText("");
               setDateString(Today);
