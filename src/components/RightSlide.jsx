@@ -4,10 +4,7 @@ import React, { useContext, useState, useEffect } from "react";
 // react-icons.
 import { BsArrowRepeat, BsSun, BsCalendarDate, BsTrash } from "react-icons/bs";
 import { BiExit } from "react-icons/bi";
-import {
-  AiOutlinePlus,
-  AiOutlineBell,
-} from "react-icons/ai";
+import { AiOutlinePlus, AiOutlineBell } from "react-icons/ai";
 // Context.
 import { TodoContext } from "./Store";
 import { RightSideContext } from "./Context/RightSide";
@@ -45,10 +42,9 @@ export function RightSlide() {
     });
     todolist[RightSideInfo.id - 1].deadline = EditDeadLine;
     setTodoList([...todolist]);
-  }
+  };
 
   const [RightSideCalendarClick, setRightSideCalendarClick] = useState(false);
-
 
   // RightSideInfo가 변할 때 마다 setTodoname을 수정하기
   useEffect(() => {
@@ -82,11 +78,6 @@ export function RightSlide() {
               className="TextInfo"
             />
           </div>
-
-          <div className="Button">
-            <AiOutlinePlus className="Icon" style={{ color: "royalblue" }} />
-            <span>단계 추가</span>
-          </div>
         </div>
 
         <div className="Button Solo">
@@ -100,16 +91,35 @@ export function RightSlide() {
             <span>지정된 알림 없음</span>
           </div>
 
-          <div className="Button" onClick={() => {setRightSideCalendarClick(!RightSideCalendarClick)}}>
+          <div
+            className="Button"
+            onClick={() => {
+              setRightSideCalendarClick(!RightSideCalendarClick);
+            }}
+          >
             <BsCalendarDate className="Icon" />
             <span>{RightSideInfo.deadline}</span>
           </div>
-            
-          <div className="RightSlideCalendar" style={RightSideCalendarClick === true ? {display: "block"} : {display: "none"}}>
+
+          <div
+            className="RightSlideCalendar"
+            style={
+              RightSideCalendarClick === true
+                ? { display: "block" }
+                : { display: "none" }
+            }
+          >
             <Calendar className="calendar" onChange={onChange} />
-            <button onClick={()=>{EditDate()}} className="EditDateButton">수정하기</button>
+            <button
+              onClick={() => {
+                EditDate();
+              }}
+              className="EditDateButton"
+            >
+              수정하기
+            </button>
           </div>
-          
+
           <div className="Button">
             <BsArrowRepeat className="Icon" />
             <span>반복</span>

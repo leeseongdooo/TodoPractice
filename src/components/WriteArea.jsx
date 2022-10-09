@@ -84,6 +84,7 @@ function WriteArea({ Today }) {
 
   const [inputText, setInputText] = useState(""); // 사용자가 입력하는 value값.
   const [CalendarClick, setCalendarClick] = useState(false); // 캘린더 아이콘 클릭 여부
+
   return (
     <div className="WriteArea">
       <div className="WriteForm WriteTopArea">
