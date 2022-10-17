@@ -4,6 +4,7 @@ import { BiSort } from "react-icons/bi";
 import { BsLightbulb } from "react-icons/bs";
 // Component
 import WriteArea from "./WriteArea";
+import NoList from "./NoList";
 import TodoListArea from "./TodoListArea";
 import DoneListArea from "./DoneListArea";
 import { RightSlide } from "./RightSlide";

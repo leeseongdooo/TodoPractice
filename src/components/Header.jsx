@@ -2,20 +2,21 @@ import "../css/Header.scss"; // css
 import React, { useState, useEffect, useContext } from "react"; // react
 import { AiOutlineMenu } from "react-icons/ai"; // React-icons.
 import { TodoContext } from "./Store";
+import { HeaderContext } from "./Context/HeaderContext";
 
 function Header() {
-  const [todolist] = useContext(TodoContext);
-  const [SearchText, setSearchText] = useState("");
-  const [todonameList, setTodoNameList] = useState([]);
+  const [todolist, setTodoList] = useContext(TodoContext);
+  const [SearchText, setSearchText, FilterList, setFilterList] =
+    useContext(HeaderContext);
 
   useEffect(() => {
-    console.log(SearchText);
-    setTodoNameList(
-      todolist.map((Info) => {
-        return Info.todoname;
-      })
-    );
-  }, [SearchText, todolist]);
+    console.log(FilterList);
+    if (SearchText.length === 0) {
+      // 검색 내용이 0이라면
+      setFilterList([]); // 검색 내용을 저장하는 FIlterList를 초기화 해준다.
+      setSearchText(SearchText + 1); // 임의의 값을 넣어서 무한반복을 막아준다.
+    }
+  }, [SearchText, FilterList]);
 
   return (
     <div className="HeaderParent">
@@ -33,24 +34,18 @@ function Header() {
           onChange={(e) => {
             setSearchText(e.target.value);
           }}
-        />
-        <button
-          onClick={() => {
-            for (let i = 0; i < todolist.length; i++) {
-              const todo = todolist[i].todoname;
-              const SearchResult = todo.includes(SearchText, 0);
-
-              if (SearchResult === true) {
-                console.log("이건 성공" + todo);
-              } else {
-                console.log("이건 성공 X");
+          onKeyDown={(e) => {
+            if (e.keyCode === 13) {
+              // 엔터 눌렀을 떼
+              if (todolist.length !== 0 && SearchText.length !== 0) {
+                // todolist가 0이고, SearchText의 문자수가 0이 아니라면
+                setFilterList(
+                  todolist.filter((Info) => Info.todoname === SearchText) // filterList의 filter된 값을 넣어서 저장합니다.
+                );
               }
             }
           }}
-        >
-          TEST
-        </button>
-        {/* 여기에 검색기능 추가. */}
+        />
       </div>
     </div>
   );

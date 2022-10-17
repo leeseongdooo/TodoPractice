@@ -4,6 +4,7 @@ import "../css/TodoListArea.scss";
 import { TodoContext } from "./Store";
 import { RightSideContext } from "./Context/RightSide";
 import { GrCheckbox, GrCheckboxSelected } from "react-icons/gr";
+import { HeaderContext } from "./Context/HeaderContext";
 
 export function ListForm({ Info }) {
   const [
@@ -40,15 +41,10 @@ export function ListForm({ Info }) {
         id: donelist.length + 1,
         todoname: Info.todoname,
         finish: Info.finish,
-        deadline: Info.deadline
+        deadline: Info.deadline,
       },
     ]);
   };
-
-  useEffect(() => {
-    console.log("48");
-    console.log(todolist);
-  });
 
   return (
     <div
@@ -79,6 +75,8 @@ export function ListForm({ Info }) {
 
 function TodoListArea() {
   const [todolist, setTodoList] = useContext(TodoContext);
+  const [SearchText, setSearchText, FilterList, setFilterList] =
+    useContext(HeaderContext);
   const [
     RightSideChecked, // div를 클릭여부 BOOL
     setRightSideChecked,
@@ -88,24 +86,30 @@ function TodoListArea() {
   ] = useContext(RightSideContext);
 
   useEffect(() => {
-    console.log(todolist);
-  }, [todoname]);
+    console.log("검색문자 테스트" + SearchText.length);
+  }, [SearchText]);
 
   return (
-    <div className="TodoListArea">
-      <div
-        className="TopIntroduceArea"
-        style={todolist.length === 0 ? { display: "none" } : {}}
-      >
-        {/* TodoListArea에서 Todo의 영역이라 알려주는 텍스트가 들어갑니다.*/}
-        <BsChevronDoubleRight />
-        <span>TODOLIST</span>
-      </div>
+    <>
+      <div className="TodoListArea">
+        <div
+          className="TopIntroduceArea"
+          style={todolist.length === 0 ? { display: "none" } : {}}
+        >
+          {/* TodoListArea에서 Todo의 영역이라 알려주는 텍스트가 들어갑니다.*/}
+          <BsChevronDoubleRight />
+          <span>TODOLIST</span>
+        </div>
 
-      {todolist.map((Info) => (
-        <ListForm key={Info.id} Info={Info} />
-      ))}
-    </div>
+        {SearchText.length > 0 && FilterList.length > 0
+          ? FilterList.map((Info) => <ListForm key={Info.id} Info={Info} />)
+          : todolist.map((Info) => <ListForm key={Info.id} Info={Info} />)}
+
+        {/* {todolist.map((Info) => (
+          <ListForm key={Info.id} Info={Info} />
+        ))} */}
+      </div>
+    </>
   );
 }
 

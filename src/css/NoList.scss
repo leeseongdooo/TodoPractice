@@ -1,0 +1,27 @@
+.NoListParent {
+  display: flex;
+  justify-content: center;
+
+  .InnerBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    .Icons {
+      width: 150px;
+      height: 150px;
+    }
+
+    button {
+      max-width: 100px;
+      height: 35px;
+      border-radius: 15px;
+      border: none;
+      cursor: pointer;
+      background-color: royalblue;
+      color: white;
+      font-weight: 700;
+    }
+  }
+}

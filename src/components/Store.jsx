@@ -1,5 +1,6 @@
 import React, { useState, createContext } from "react"; // react
 import { RightSideContext } from "./Context/RightSide"; // Context 폴더에서 RightSideContext를 가져옵니다.
+import { HeaderContext } from "./Context/HeaderContext";
 import MainTodo from "./MainTodo";
 import Header from "./Header";
 
@@ -11,6 +12,9 @@ function Store() {
   const [RightSideInfo, setRightSideInfo] = useState({}); // RightSideInfo는 클릭한 [todo, donetodo]의 정보를 저장합니다.
   const [RightSideChecked, setRightSideChecked] = useState(false); // 사용자가 특정한 투두의 div를 클릭 시 true로 변환되어 오른쪽 슬라이드가 나올 수 있게 설정.
   const [todoname, setTodoname] = useState(""); // RightSideInfo에서 TODO명을 수정하기 위해 만들었습니다.
+
+  const [SearchText, setSearchText] = useState(""); // 검색할 문자를 저장하는곳.
+  const [FilterList, setFilterList] = useState([]); // filter결과를 저장하는곳
 
   const Today = new Date();
 
@@ -36,30 +40,34 @@ function Store() {
   };
 
   return (
-    <RightSideContext.Provider
-      value={[
-        RightSideChecked,
-        setRightSideChecked,
-        RightSideInfo,
-        setRightSideInfo,
-        todoname,
-        setTodoname,
-      ]}
+    <HeaderContext.Provider
+      value={[SearchText, setSearchText, FilterList, setFilterList]}
     >
-      <TodoContext.Provider
+      <RightSideContext.Provider
         value={[
-          todolist,
-          setTodoList,
-          onCreate,
-          donelist,
-          setDoneList,
-          setDateString,
+          RightSideChecked,
+          setRightSideChecked,
+          RightSideInfo,
+          setRightSideInfo,
+          todoname,
+          setTodoname,
         ]}
       >
-        <Header />
-        <MainTodo />
-      </TodoContext.Provider>
-    </RightSideContext.Provider>
+        <TodoContext.Provider
+          value={[
+            todolist,
+            setTodoList,
+            onCreate,
+            donelist,
+            setDoneList,
+            setDateString,
+          ]}
+        >
+          <Header />
+          <MainTodo />
+        </TodoContext.Provider>
+      </RightSideContext.Provider>
+    </HeaderContext.Provider>
   );
 }
 
