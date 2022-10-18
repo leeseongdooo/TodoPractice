@@ -15,6 +15,26 @@
       align-items: center;
       justify-content: space-between;
       margin-left: 10px;
+      margin-top: 20px;
+    
+      .FirstBox {
+        display: flex;
+    
+        align-items:flex-start;
+        justify-content: flex-start;
+
+        div {
+          margin-left: 10px;
+          margin-top: -5px;
+        }
+      }
+
+      .menu-Icon {
+        width: 20px;
+        height: 20px;
+        cursor: pointer;
+      }
+    
       h3 {
         font-size: 2erm;
         color: #323130;

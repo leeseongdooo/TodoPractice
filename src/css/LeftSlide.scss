@@ -1,0 +1,60 @@
+.LeftSideArea {
+   width: 15%;
+   background-color: white;
+   box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.1);
+
+   .TopArea {
+      margin: 30px 0px 0px 0px;
+    
+      .Menu-Icon {
+        cursor: pointer;
+      }
+
+      .Icons {
+        width: 20px;
+        height: 20px;
+        margin: 0px 20px;
+      }
+
+        .Inner-Item {
+            display: flex;         
+            height: 40px;
+            align-items: center;
+            margin-top: 10px;
+            
+            span {
+                font-size: 14px;
+            }
+        }
+
+        .Inner-Item:hover {
+            background-color: #E1DFDD;
+        }
+
+    }
+
+    .CategoryArea {
+        margin: 10px 0px 0px 0px;
+        color: royalblue;
+        border-top: 1px solid #E1DFDD;
+        .Add-Category {
+            display: flex;         
+            height: 40px;
+            align-items: center;
+            margin-top: 10px;
+
+            .Icons {
+                margin: 0px 20px
+            }
+
+            span {
+                font-size: 14px;
+            }
+        }
+
+        .Add-Category:hover {
+            background-color: #E1DFDD
+        }
+        
+    }
+}

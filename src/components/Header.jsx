@@ -1,6 +1,5 @@
 import "../css/Header.scss"; // css
 import React, { useState, useEffect, useContext } from "react"; // react
-import { AiOutlineMenu } from "react-icons/ai"; // React-icons.
 import { TodoContext } from "./Store";
 import { HeaderContext } from "./Context/HeaderContext";
 
@@ -22,8 +21,7 @@ function Header() {
     <div className="HeaderParent">
       {/* Header의 가장 큰 div */}
       <div className="Left-Box">
-        {/* 왼쪽 영역을 담당하는 Left Box ICON과 사이트 로고가 있습니다. */}
-        <AiOutlineMenu className="Icons" />
+        {/* 왼쪽 영역을 담당하는 사이트 로고가 있습니다. */}
         <h2>My TODO</h2>
       </div>
       <div className="InputBox">

@@ -1,15 +1,19 @@
 import "../css/MainTodo.scss"; // MainTodo css
 // React-Icons.
 import { BiSort } from "react-icons/bi";
+import { AiOutlineMenu } from "react-icons/ai"; // React-icons.
 import { BsLightbulb } from "react-icons/bs";
+
 // Component
 import WriteArea from "./WriteArea";
 import NoList from "./NoList";
 import TodoListArea from "./TodoListArea";
 import DoneListArea from "./DoneListArea";
 import { RightSlide } from "./RightSlide";
+
 // React.
-import React from "react";
+import React, {useEffect, useState} from "react";
+import LeftSlide from "./LeftSlide";
 
 function MainTodo() {
   const Today = new Date();
@@ -19,16 +23,27 @@ function MainTodo() {
     day: "numeric",
   }); // 변수에 오늘의 날짜를 String식으로.
 
+  const [ShowLeftSlide, setShowLeftSlide] = useState(false); // ShowLeftSlide는 LeftSlide를 보여줄지 안보여줄지에 대한 bool값을 저장하는 변수입니다.
+
+  useEffect(()=>{
+    console.log(ShowLeftSlide)
+  }, [ShowLeftSlide])
+
   return (
     <div className="MainTodoFlex">
+      <LeftSlide />
       {/* MainTodoFlex = Main영역의 가장 큰 div. */}
       {/* 여기에 사이드 메뉴가 들어가면 될듯. */}
       <div className="MainTodoBox">
         {/* TopArea는 오늘의 날짜 정보, 정렬 기능이 있습니다. */}
         <div className="TopArea">
-          <div>
+          <div className="FirstBox">
+            <AiOutlineMenu className="menu-Icon" onClick={()=>{setShowLeftSlide(!ShowLeftSlide)}}/>
+            <div>
             <h3>오늘의 TODO</h3>
             <span className="TodayString">{TodayString}</span>
+            </div>
+            
           </div>
 
           <div className="IconBox">
@@ -47,6 +62,8 @@ function MainTodo() {
           <DoneListArea />
         </div>
       </div>
+
+      
       {/* RightSlide는 오른쪽 슬라이드 메뉴바[수정기능이 있는]를 담당합니다. */}
       <RightSlide />
     </div>
