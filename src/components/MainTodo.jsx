@@ -2,7 +2,7 @@ import "../css/MainTodo.scss"; // MainTodo css
 // React-Icons.
 import { BiSort } from "react-icons/bi";
 import { AiOutlineMenu } from "react-icons/ai"; // React-icons.
-import { BsLightbulb } from "react-icons/bs";
+import { BsLightbulb, BsSun } from "react-icons/bs";
 
 // Component
 import WriteArea from "./WriteArea";
@@ -29,19 +29,22 @@ function MainTodo() {
     console.log(ShowLeftSlide)
   }, [ShowLeftSlide])
 
+
+
   return (
     <div className="MainTodoFlex">
-      <LeftSlide />
+      {ShowLeftSlide === true ?  <LeftSlide setShowLeftSlide={setShowLeftSlide} /> : <></>}
       {/* MainTodoFlex = Main영역의 가장 큰 div. */}
       {/* 여기에 사이드 메뉴가 들어가면 될듯. */}
       <div className="MainTodoBox">
         {/* TopArea는 오늘의 날짜 정보, 정렬 기능이 있습니다. */}
         <div className="TopArea">
           <div className="FirstBox">
-            <AiOutlineMenu className="menu-Icon" onClick={()=>{setShowLeftSlide(!ShowLeftSlide)}}/>
+            {ShowLeftSlide !== true ?   <AiOutlineMenu className="menu-Icon" onClick={()=>{setShowLeftSlide(true)}} /> : <BsSun className="menu-Icon"/>}
             <div>
-            <h3>오늘의 TODO</h3>
-            <span className="TodayString">{TodayString}</span>
+              
+              <h3>오늘 할 일</h3>
+              <span className="TodayString">{TodayString}</span>
             </div>
             
           </div>

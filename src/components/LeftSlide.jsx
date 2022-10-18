@@ -4,11 +4,11 @@ import { BsSun } from "react-icons/bs"
 import { GrWorkshop } from "react-icons/gr"
 import "../css/LeftSlide.scss";
 
-function LeftSlide() {
+function LeftSlide({setShowLeftSlide}) {
     return (
         <div className="LeftSideArea">
             <div className="TopArea">
-                <AiOutlineMenu className="Icons Menu-Icon" /> 
+                <AiOutlineMenu className="Icons Menu-Icon" onClick={()=>{setShowLeftSlide(false)}} /> 
 
                 {/* 오늘 할 일 */}
                 <div className="Inner-Item">
