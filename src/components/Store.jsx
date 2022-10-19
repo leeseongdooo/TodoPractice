@@ -12,7 +12,7 @@ function Store() {
   const [RightSideInfo, setRightSideInfo] = useState({}); // RightSideInfo는 클릭한 [todo, donetodo]의 정보를 저장합니다.
   const [RightSideChecked, setRightSideChecked] = useState(false); // 사용자가 특정한 투두의 div를 클릭 시 true로 변환되어 오른쪽 슬라이드가 나올 수 있게 설정.
   const [todoname, setTodoname] = useState(""); // RightSideInfo에서 TODO명을 수정하기 위해 만들었습니다.
-
+  const [Important, setImportant] = useState(false);
   const [SearchText, setSearchText] = useState(""); // 검색할 문자를 저장하는곳.
   const [FilterList, setFilterList] = useState([]); // filter결과를 저장하는곳
 
@@ -35,6 +35,7 @@ function Store() {
         todoname: todoName,
         finish: false,
         deadline: DateString,
+        important: false,
       },
     ]);
   };
@@ -61,6 +62,7 @@ function Store() {
             donelist,
             setDoneList,
             setDateString,
+            setImportant,
           ]}
         >
           <Header />

@@ -3,6 +3,7 @@ import { BsChevronDoubleRight } from "react-icons/bs";
 import "../css/TodoListArea.scss";
 import { TodoContext } from "./Store";
 import { RightSideContext } from "./Context/RightSide";
+import { AiOutlineStar, AiFillStar } from "react-icons/ai";
 import { GrCheckbox, GrCheckboxSelected } from "react-icons/gr";
 import { HeaderContext } from "./Context/HeaderContext";
 
@@ -15,8 +16,15 @@ export function ListForm({ Info }) {
     todoname,
   ] = useContext(RightSideContext);
 
-  const [todolist, setTodoList, onCreate, donelist, setDoneList] =
-    useContext(TodoContext);
+  const [
+    todolist,
+    setTodoList,
+    onCreate,
+    donelist,
+    setDoneList,
+    setDateString,
+    setImportant,
+  ] = useContext(TodoContext);
 
   // id 정렬.
   const sortId = () => {
@@ -46,6 +54,10 @@ export function ListForm({ Info }) {
     ]);
   };
 
+  useEffect(() => {
+    console.log(todolist);
+  }, [todolist]);
+
   return (
     <div
       className="ListFormArea"
@@ -54,21 +66,44 @@ export function ListForm({ Info }) {
         setRightSideInfo(Info);
       }}
     >
-      {Info.finish !== true ? (
-        <GrCheckbox
-          onClick={(e) => {
-            CheckBoxClick();
+      <div className="FrontBox">
+        {Info.finish !== true ? (
+          <GrCheckbox
+            onClick={(e) => {
+              CheckBoxClick();
+            }}
+            className="CheckBoxIcon"
+          />
+        ) : (
+          <GrCheckboxSelected className="CheckBoxIcon" />
+        )}
+
+        <div className="TodolistInfoText">
+          <span className="TodoNameText">{Info.todoname}</span>
+          <span className="DeadLineText">{Info.deadline}</span>
+        </div>
+      </div>
+
+      {Info.important === false ? (
+        <AiOutlineStar
+          className="Icon"
+          onClick={() => {
+            todolist[Info.id - 1].important = true;
+            setTodoList(todolist);
+            setImportant(true);
           }}
-          className="CheckBoxIcon"
         />
       ) : (
-        <GrCheckboxSelected className="CheckBoxIcon" />
+        <AiFillStar
+          className="Icon"
+          onClick={() => {
+            todolist[Info.id - 1].important = false;
+            console.log(todolist[Info.id - 1].important);
+            setTodoList(todolist);
+            setImportant(false);
+          }}
+        />
       )}
-
-      <div className="TodolistInfoText">
-        <span className="TodoNameText">{Info.todoname}</span>
-        <span className="DeadLineText">{Info.deadline}</span>
-      </div>
     </div>
   );
 }
@@ -86,6 +121,7 @@ function TodoListArea() {
   ] = useContext(RightSideContext);
 
   useEffect(() => {
+    console.log(todolist);
     console.log("검색문자 테스트" + SearchText.length);
   }, [SearchText]);
 

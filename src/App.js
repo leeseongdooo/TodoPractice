@@ -3,6 +3,8 @@ import styled from "styled-components";
 import Header from "./components/Header.jsx";
 import MainTodo from "./components/MainTodo";
 import Store from "./components/Store";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import TestParam from "./components/TestParam";
 
 const AppStyled = styled.div`
   padding: 0;
@@ -15,7 +17,12 @@ const AppStyled = styled.div`
 function App() {
   return (
     <AppStyled>
-      <Store></Store>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Store />}></Route>
+          <Route path="/Important" element={<Store />}></Route>
+        </Routes>
+      </BrowserRouter>
     </AppStyled>
   );
 }
