@@ -61,7 +61,7 @@ function LeftSlide({ setShowLeftSlide }) {
         <Link to="/Important">
           <div className="Inner-Item">
             <AiOutlineStar className="Icons" />
-            <span>중요 {ImportantList.length}</span>
+            <span>중요</span>
           </div>
         </Link>
 

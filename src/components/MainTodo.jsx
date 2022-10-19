@@ -81,9 +81,12 @@ function MainTodo() {
 
         {/* WriteArea에서 작성한 정보는 TODOListArea, DoneListArea에 값이 전달된 후 화면에 출력됩니다. */}
         <div className="ListParentArea">
-          <TodoListArea />
-          <DoneListArea />
-          <ImportantArea />
+          <div style={testParam.pathname === "/" ? {} : {display: "none"}}>
+            <TodoListArea />
+            <DoneListArea />
+          </div>
+          
+          <ImportantArea pathname={testParam.pathname} />
         </div>
       </div>
 
