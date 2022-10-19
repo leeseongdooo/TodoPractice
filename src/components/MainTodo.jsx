@@ -16,6 +16,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import LeftSlide from "./LeftSlide";
 import { useLocation } from "react-router-dom";
+import ImportantArea from "./ImportantArea";
 
 function MainTodo() {
   const Today = new Date();
@@ -73,13 +74,16 @@ function MainTodo() {
             <span className="Plan">일정 계획</span>
           </div>
         </div>
+
+
         {/* WriteArea는 새로운 TODO의 TODO명, 날짜, 알림설정을 할 수 있는 영역입니다. */}
-        <WriteArea Today={TodayString} />
+        {testParam.pathname === "/" ? <WriteArea Today={TodayString} /> : <div></div>}
 
         {/* WriteArea에서 작성한 정보는 TODOListArea, DoneListArea에 값이 전달된 후 화면에 출력됩니다. */}
         <div className="ListParentArea">
           <TodoListArea />
           <DoneListArea />
+          <ImportantArea />
         </div>
       </div>
 

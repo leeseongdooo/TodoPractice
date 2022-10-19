@@ -147,10 +147,6 @@ function TodoListArea() {
         {SearchText.length > 0 && FilterList.length > 0
           ? FilterList.map((Info) => <ListForm key={Info.id} Info={Info} />)
           : todolist.map((Info) => <ListForm key={Info.id} Info={Info} />)}
-
-        {/* {todolist.map((Info) => (
-          <ListForm key={Info.id} Info={Info} />
-        ))} */}
       </div>
     </>
   );
