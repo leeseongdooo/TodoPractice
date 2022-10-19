@@ -10,8 +10,35 @@ import { Link } from "react-router-dom";
 import { BsSun } from "react-icons/bs";
 import { GrWorkshop } from "react-icons/gr";
 import "../css/LeftSlide.scss";
+import { TodoContext } from "./Store";
 
 function LeftSlide({ setShowLeftSlide }) {
+
+
+  const [
+    todolist,
+    setTodoList,
+    onCreate,
+    donelist,
+    setDoneList,
+    setDateString,
+    setImportant,
+    ImportantCount, 
+    setImportantCount
+  ] = useContext(TodoContext);
+  const [ImportantList, setImportantList] = useState([]);
+  
+
+  const CountCheck = () => {
+   setImportantList(todolist.filter((Info) => Info.important === true));
+  }
+
+  useEffect(()=>{
+    CountCheck();
+  }, [ImportantCount])
+  
+  console.log(ImportantList)
+
   return (
     <div className="LeftSideArea">
       <div className="TopArea">
@@ -34,7 +61,7 @@ function LeftSlide({ setShowLeftSlide }) {
         <Link to="/Important">
           <div className="Inner-Item">
             <AiOutlineStar className="Icons" />
-            <span>중요</span>
+            <span>중요 {ImportantList.length}</span>
           </div>
         </Link>
 

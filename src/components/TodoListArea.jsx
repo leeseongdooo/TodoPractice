@@ -24,7 +24,11 @@ export function ListForm({ Info }) {
     setDoneList,
     setDateString,
     setImportant,
+    ImportantCount, 
+    setImportantCount
   ] = useContext(TodoContext);
+
+  const [] = useContext(TodoContext);
 
   // id 정렬.
   const sortId = () => {
@@ -91,6 +95,7 @@ export function ListForm({ Info }) {
             todolist[Info.id - 1].important = true;
             setTodoList(todolist);
             setImportant(true);
+            setImportantCount(ImportantCount + 1);
           }}
         />
       ) : (
@@ -101,6 +106,8 @@ export function ListForm({ Info }) {
             console.log(todolist[Info.id - 1].important);
             setTodoList(todolist);
             setImportant(false);
+            setImportantCount(ImportantCount - 1);
+         
           }}
         />
       )}
