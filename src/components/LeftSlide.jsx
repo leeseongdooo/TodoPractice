@@ -66,10 +66,12 @@ function LeftSlide({ setShowLeftSlide }) {
         </Link>
 
         {/* 계획된 일정 */}
-        <div className="Inner-Item">
-          <AiTwotoneCalendar className="Icons" />
-          <span>계획된 일정</span>
-        </div>
+        <Link to="/Schedule" >
+          <div className="Inner-Item">
+            <AiTwotoneCalendar className="Icons" />
+            <span>계획된 일정</span>
+          </div>
+        </Link>
 
         {/* 나에게 할당됨 */}
         <div className="Inner-Item">

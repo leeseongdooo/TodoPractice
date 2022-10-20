@@ -21,6 +21,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Store />}></Route>
           <Route path="/Important" element={<Store />}></Route>
+          <Route path="/Schedule" element={<Store />}></Route>
         </Routes>
       </BrowserRouter>
     </AppStyled>

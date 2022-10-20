@@ -17,6 +17,7 @@ import { useParams } from "react-router-dom";
 import LeftSlide from "./LeftSlide";
 import { useLocation } from "react-router-dom";
 import ImportantArea from "./ImportantArea";
+import Schedule from "./Schedule";
 
 function MainTodo() {
   const Today = new Date();
@@ -61,7 +62,7 @@ function MainTodo() {
             )}
             <div>
               <h3>
-                {testParam.pathname === "/Important" ? "중요" : "오늘 할 일"}{" "}
+                {testParam.pathname === "/Important" ? "중요" : testParam.pathname === "/Schedule" ? "계획된 일정" :"오늘 할 일"}
               </h3>
               <span className="TodayString">{TodayString}</span>
             </div>
@@ -86,7 +87,8 @@ function MainTodo() {
             <DoneListArea />
           </div>
           
-          <ImportantArea pathname={testParam.pathname} />
+          {testParam.pathname === "/Important" ? <ImportantArea pathname={testParam.pathname} /> : <></> }
+          {testParam.pathname === "/Schedule" ? <Schedule pathname={testParam.pathname} /> : <></>}
         </div>
       </div>
 
