@@ -1,6 +1,7 @@
 import React, { useState, createContext } from "react"; // react
 import { RightSideContext } from "./Context/RightSide"; // Context 폴더에서 RightSideContext를 가져옵니다.
 import { HeaderContext } from "./Context/HeaderContext";
+import { ScheduleContext } from "./Context/ScheduleContext";
 import MainTodo from "./MainTodo";
 import Header from "./Header";
 
@@ -17,6 +18,8 @@ function Store() {
   const [SearchText, setSearchText] = useState(""); // 검색할 문자를 저장하는곳.
   const [FilterList, setFilterList] = useState([]); // filter결과를 저장하는곳
   
+  const [TodayList, setTodayList] = useState([]);
+
   const Today = new Date();
 
   let [DateString, setDateString] = useState(
@@ -45,6 +48,10 @@ function Store() {
     <HeaderContext.Provider
       value={[SearchText, setSearchText, FilterList, setFilterList]}
     >
+      <ScheduleContext.Provider value={[TodayList, setTodayList]}>
+
+     
+
       <RightSideContext.Provider
         value={[
           RightSideChecked,
@@ -72,6 +79,7 @@ function Store() {
           <MainTodo />
         </TodoContext.Provider>
       </RightSideContext.Provider>
+      </ScheduleContext.Provider>
     </HeaderContext.Provider>
   );
 }

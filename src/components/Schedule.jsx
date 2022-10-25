@@ -1,62 +1,47 @@
-import React, {useState, useContext, useEffect} from "react";
+import React, {useState, useContext, useCallback, useEffect} from "react";
 import { TodoContext } from "./Store";
 import "../css/Schedule.scss"
 import { IoConstructOutline } from "react-icons/io5";
+import { ScheduleContext } from "./Context/ScheduleContext";
+
+
+
 
 function Schedule() {
 
-    const [
-        todolist,
-        setTodoList,
-        onCreate,
-        donelist,
-        setDoneList,
-        setDateString,
-        setImportant,
-        ImportantCount, 
-        setImportantCount
-      ] = useContext(TodoContext);
+    const Today = new Date();
+    let TodayString = Today.toLocaleDateString("ko-KR", {
+      weekday: "long",
+      month: "short",
+      day: "numeric",
+    }); 
 
-    const today = new Date(); // 날짜
+    const [todolist] = useContext(TodoContext);
+    const [TodayList, setTodayList] = useContext(ScheduleContext);
+    const [test, setTest] = useState(0);
 
-    let TodayString = today.toLocaleDateString("ko-KR", {
-        weekday: "long",
-        month: "short",
-        day: "numeric",
-      });
-
-
-    const [BeforeDateList, setBeforeDateList] = useState([]); // 오늘을 기준으로 이전날짜인 데이터를 저장하는 변수입니다.
-    const [TodayDateList, setTodayDateList] = useState([]); // 오늘을 기준으로 오늘 데이터를 저장하는 변수입니다.
-    const [AfterDateList, setAfterDateList] = useState([]); // 오늘을 기준으로 다음날 데이터를 저장하는 변수입니다.   
    
+    useEffect(()=>{
+        todolist.map((Info) => {
+            
+                setTodayList([...TodayList, {
+                    id: Info.id,
+                    todoname: Info.todoname,
+                    finish: Info.finish
+                }])
+            
+            console.log(Info)
+        })
+    }, [])
 
-    // setTodayDateList([...TodayDateList, {
-    //     id: Info.id,
-    //     todoname: Info.todoname,
-    //     finish: Info.finish,
-    //     deadline: Info.deadline,
-    //     important: Info.important,
-    // }]);
-
-    todolist.map((Info) => {
-        if(TodayString === Info.deadline)
-        {
-           
-           
-        }
-        else {
-            console.log("다른거다..!" + Info.deadline)
-        }
-    })
-    
-    
-
-
+    console.log(TodayList)
+        
+     
 
     return (
         <div className="ScheduleParent">
-            
+           {test}
+           {todolist.length}
         </div>
     )
 }
