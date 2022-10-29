@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { BsChevronDoubleRight } from "react-icons/bs";
+import { BsChevronDoubleRight, BsTrash } from "react-icons/bs";
 import "../css/TodoListArea.scss";
 import { TodoContext } from "./Store";
 import { RightSideContext } from "./Context/RightSide";
@@ -58,6 +58,11 @@ export function ListForm({ Info }) {
     ]);
   };
 
+  const DeleteTodo = () => {
+    sortId();
+    setTodoList(todolist.filter((info) => info.todoname !== Info.todoname))
+  }
+
   useEffect(() => {
     console.log(todolist);
   }, [todolist]);
@@ -88,29 +93,31 @@ export function ListForm({ Info }) {
         </div>
       </div>
 
-      {Info.important === false ? (
-        <AiOutlineStar
-          className="Icon"
-          onClick={() => {
+      <div className="IconBox">
+        {Info.important === false ? (
+          <AiOutlineStar
+            className="Icon"
+            onClick={() => {
             todolist[Info.id - 1].important = true;
             setTodoList(todolist);
             setImportant(true);
             setImportantCount(ImportantCount + 1);
           }}
-        />
-      ) : (
-        <AiFillStar
-          className="Icon"
-          onClick={() => {
+          />
+          ) : (
+          <AiFillStar
+            className="Icon"
+            onClick={() => {
             todolist[Info.id - 1].important = false;
             console.log(todolist[Info.id - 1].important);
             setTodoList(todolist);
             setImportant(false);
             setImportantCount(ImportantCount - 1);
-         
           }}
         />
-      )}
+        )}
+        <BsTrash className="Icon" onClick={()=>{DeleteTodo()}} />
+      </div>
     </div>
   );
 }
