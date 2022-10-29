@@ -54,13 +54,43 @@ export function ListForm({ Info }) {
         todoname: Info.todoname,
         finish: Info.finish,
         deadline: Info.deadline,
+        important: Info.important
       },
     ]);
   };
 
   const DeleteTodo = () => {
-    sortId();
-    setTodoList(todolist.filter((info) => info.todoname !== Info.todoname))
+      sortId();
+      setTodoList(todolist.filter((info) => info.todoname !== Info.todoname))
+     if(Info.finish === true) {
+      sortId();
+      setDoneList(donelist.filter((info) => info.todoname !== Info.todoname))
+    }
+  }
+
+  const ReturnTodo = () => {
+
+    donelist[Info.id - 1].finish = !donelist[Info.id - 1].finish;
+
+    for (let i = 0; i < donelist.length; i++) {
+      if (donelist[i].id > Info.id) {
+        donelist[i].id -= 1;
+        setDoneList(donelist);
+      }
+    }
+    setDoneList(donelist.filter((Info) => Info.finish === true));
+
+    setTodoList([
+      ...todolist,
+      {
+        id: todolist.length + 1,
+        todoname: Info.todoname,
+        finish: Info.finish,
+        deadline: Info.deadline,
+        important: Info.important
+      },
+    ]);
+
   }
 
   useEffect(() => {
@@ -84,7 +114,7 @@ export function ListForm({ Info }) {
             className="CheckBoxIcon"
           />
         ) : (
-          <GrCheckboxSelected className="CheckBoxIcon" />
+          <GrCheckboxSelected className="CheckBoxIcon" onClick={() => {ReturnTodo();}} />
         )}
 
         <div className="TodolistInfoText">

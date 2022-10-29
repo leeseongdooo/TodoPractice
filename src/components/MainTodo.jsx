@@ -35,7 +35,6 @@ function MainTodo() {
     console.log(ShowLeftSlide);
   }, [ShowLeftSlide]);
 
-  console.log(testParam.pathname);
 
   return (
     <div className="MainTodoFlex">
