@@ -1,5 +1,7 @@
-.ImportantListArea {
-    margin-left: 10px;
+@media ( min-width: 360px ) and (max-width: 760px) { 
+
+  .ImportantListArea {
+
     margin-bottom: 15px;
     width: 100%;
 
@@ -41,9 +43,67 @@
         justify-content: center;
 
         .Icons {
-            width: 100px;
-            height: 100px;
+            width: 80px;
+            height: 80px;
+        }
+
+        h2 {
+          font-size: 20px;
         }
       } 
+}
 
+
+}
+
+@media ( min-width: 1024px ) {
+
+  .ImportantListArea {
+      margin-left: 10px;
+      margin-bottom: 15px;
+      width: 100%;
+
+      .TopIntroduceArea {
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+      
+          span {
+            margin-left: 10px;
+            font-size: 16px;
+            font-weight: 500;
+          }
+        }
+      
+        .TodolistInfoText {
+          display: flex;
+          flex-direction: column;
+      
+          // 투두명에 대한 스타일입니다.
+          .TodoNameText {
+            font-size: 18px;
+          }
+      
+          // 마감기한에 대한 스타일입니다.
+          .DeadLineText {
+            font-size: 12px;
+            color: #667799;
+          }
+        }
+
+      //  아직 중요 리스트가 한개도 없다면.
+        .NoImportant {
+          width: 100%;
+          height: 500px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+
+          .Icons {
+              width: 100px;
+              height: 100px;
+          }
+        } 
+  }
 }

@@ -14,7 +14,6 @@ function NoList() {
     <div className="NoListParent">
       <div className="InnerBox">
         <IoBan className="Icons" />
-
         <h2>검색된 결과가 없어요 ㅜㅜ</h2>
       </div>
     </div>

@@ -1,119 +1,200 @@
-.MainTodoFlex {
-  position: relative;
-  display: flex;
-  width: 100%;
-  min-height: calc(100vh - 50px);
+@media ( min-width: 1024px ) { 
 
-  //
-  .MainTodoBox {
+  .MainTodoFlex {
+    position: relative;
+    display: flex;
     width: 100%;
-    z-index: 0;
-    padding: 10px;
-    flex: 5;
-    .TopArea {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-left: 10px;
-      margin-top: 20px;
+    min-height: calc(100vh - 50px);
 
-      .FirstBox {
+    //
+    .MainTodoBox {
+      width: 100%;
+      z-index: 0;
+      padding: 10px;
+    
+      .TopArea {
         display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-left: 10px;
+        margin-top: 20px;
 
-        align-items: flex-start;
-        justify-content: flex-start;
-
-        div {
-          margin-left: 10px;
-          margin-top: -5px;
+        .FirstBox {
+          display: flex;
+          div {
+            margin-left: 10px;
+            margin-top: -5px;
+          }
         }
-      }
 
-      .menu-Icon {
-        width: 20px;
-        height: 20px;
-        cursor: pointer;
-      }
-
-      h3 {
-        font-size: 2erm;
-        color: #323130;
-        line-height: 0px;
-      }
-
-      .DateString {
-        font-size: 1.2erm;
-        color: #797775;
-      }
-
-      // 상단의 아이콘 박스입니다.
-      .IconBox {
-        text-align: center;
-        line-height: center;
-        .Icon {
-          font-size: 20px;
-          color: #797775;
-
+        .menu-Icon {
+          width: 20px;
+          height: 20px;
           cursor: pointer;
         }
 
-        span {
-          font-size: 16px;
+        h3 {
+          font-size: 2erm;
+          color: #323130;
+          line-height: 0px;
+        }
+
+        .DateString {
+          font-size: 1.2erm;
           color: #797775;
-          margin: 5px;
         }
       }
-    }
 
-    .ListFormArea {
-      margin-top: 10px;
-      width: 99%;
-      border-radius: 5px;
-      background-color: white;
-      box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
-      min-height: 52px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      transition: 0.4s;
-      cursor: pointer;
-
-      .FrontBox {
+      .ListFormArea {
+        margin-top: 10px;
+        width: 99%;
+        border-radius: 5px;
+        background-color: white;
+        box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+        min-height: 52px;
         display: flex;
         align-items: center;
+        justify-content: space-between;
+        transition: 0.4s;
+        cursor: pointer;
+
+        .FrontBox {
+          display: flex;
+          align-items: center;
+        }
+
+        span {
+          margin-left: 20px;
+        }
+
+        .Icon {
+          width: 25px;
+          height: 25px;
+          margin-right: 10px;
+        }
       }
 
-      span {
+      // 체크박스 아이콘.
+      .CheckBoxIcon {
+        min-width: 20px;
+        min-height: 20px;
         margin-left: 20px;
-        outline: none; // focus됐을때 없애기
+      }
+
+      .ListParentArea {
+        margin-top: 60px;
         width: 100%;
-        border: none;
+        max-height: 700px; // PC일 때 이정도가 적당 1920 * 1080 // 맥북일댄 수정 필요.
+        overflow-y: scroll;
+        overflow-x: hidden;
       }
 
-      .Icon {
-        width: 25px;
-        height: 25px;
-        margin-right: 10px;
+      // 스크롤바 안보이게 설정하기.
+      .ListParentArea::-webkit-scrollbar {
+        display: none;
       }
     }
+  }
+}
 
-    // 체크박스 아이콘.
-    .CheckBoxIcon {
-      min-width: 20px;
-      min-height: 20px;
-      margin-left: 20px;
-    }
+@media ( min-width: 360px ) and (max-width: 760px) {  
 
-    .ListParentArea {
-      margin-top: 60px;
+  .MainTodoFlex {
+    position: relative;
+    display: flex;
+    width: 100%;
+    min-height: calc(100vh - 50px);
+
+    //
+    .MainTodoBox {
       width: 100%;
-      max-height: 700px; // PC일 때 이정도가 적당 1920 * 1080 // 맥북일댄 수정 필요.
-      overflow-y: scroll;
-      overflow-x: hidden;
-    }
+      z-index: 0;
+      padding: 10px;
 
-    .ListParentArea::-webkit-scrollbar {
-      display: none;
+      .TopArea {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-left: 10px;
+        margin-top: 20px;
+
+        .FirstBox {
+          display: flex;
+          div {
+            margin-left: 10px;
+            margin-top: -5px;
+          }
+        }
+
+        // 메뉴 아이콘
+        .menu-Icon {
+          width: 20px;
+          height: 20px;
+          cursor: pointer;
+        }
+
+        // 오늘 할 일 텍스트 부분
+        h3 {
+          font-size: 2erm;
+          color: #323130;
+          line-height: 0px;
+        }
+
+        // 날짜 텍스트 CSS
+        .DateString {
+          font-size: 1.2erm;
+          color: #797775;
+        }
+      }
+
+      .ListFormArea {
+        margin-top: 10px;
+        width: 99%;
+        border-radius: 5px;
+        background-color: white;
+        box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+        min-height: 52px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        transition: 0.4s;
+        cursor: pointer;
+
+        .FrontBox {
+          display: flex;
+          align-items: center;
+        }
+
+        span {
+          margin-left: 20px;        
+        }
+
+        .Icon {
+          width: 25px;
+          height: 25px;
+          margin-right: 10px;
+        }
+      }
+
+      // 체크박스 아이콘.
+      .CheckBoxIcon {
+        min-width: 20px;
+        min-height: 20px;
+        margin-left: 20px;
+      }
+
+      .ListParentArea {
+        margin-top: 60px;
+        width: 100%;
+        max-height: 700px; // PC일 때 이정도가 적당 1920 * 1080 // 맥북일댄 수정 필요.
+        overflow-y: scroll;
+        overflow-x: hidden;
+      }
+
+      // 스크롤바 안보이게 설정.
+      .ListParentArea::-webkit-scrollbar {
+        display: none;
+      }
     }
   }
 }

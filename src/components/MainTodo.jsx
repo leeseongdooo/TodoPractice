@@ -61,12 +61,7 @@ function MainTodo() {
             </div>
           </div>
 
-          {/* <div className="IconBox">
-            <BiSort className="Icon" />
-            <span>정렬</span>
-            <BsLightbulb className="Icon" />
-            <span className="Plan">일정 계획</span>
-          </div> */}
+       
         </div>
 
 
