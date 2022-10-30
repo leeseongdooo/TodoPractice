@@ -1,34 +1,43 @@
-.DoneListArea {
-  margin-top: 30px;
-  margin-left: 10px;
-  margin-bottom: 15px;
-  width: 100%;
-
-  .TopIntroduceArea {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-
-    span {
-      margin-left: 10px;
-      font-size: 16px;
-      font-weight: 500;
+@media ( min-width: 1024px ) {
+  .DoneListArea {
+    margin-top: 30px;
+    margin-left: 10px;
+    margin-bottom: 15px;
+    width: 100%;
+  
+    .TopIntroduceArea {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+  
+      span {
+        margin-left: 10px;
+        font-size: 16px;
+        font-weight: 500;
+      }
     }
-  }
-
-  .TodolistInfoText {
-    display: flex;
-    flex-direction: column;
-
-    // 투두명에 대한 스타일입니다.
-    .TodoNameText {
-      font-size: 18px;
+  
+    .TodolistInfoText {
+      display: flex;
+      flex-direction: column;
+  
+      // 투두명에 대한 스타일입니다.
+      .TodoNameText {
+        font-size: 18px;
+      }
+  
+      // 마감기한에 대한 스타일입니다.
+      .DeadLineText {
+        font-size: 12px;
+        color: #667799;
+      }
     }
-
-    // 마감기한에 대한 스타일입니다.
-    .DeadLineText {
-      font-size: 12px;
-      color: #667799;
-    }
-  }
+  }  
 }
+
+@media ( min-width: 768px ) {
+  
+}
+
+
+

@@ -1,5 +1,4 @@
 import "../css/WriteArea.scss"; // WriteArea.scss
-import "../../node_modules/react-calendar/dist/Calendar.css"; // calender css.
 import React, { useState, useContext, useEffect } from "react"; // react
 // react-icons
 import { BsCalendarDate, BsBroadcast } from "react-icons/bs";
@@ -8,7 +7,7 @@ import { GrCheckbox } from "react-icons/gr";
 import { TodoContext } from "./Store";
 // LiBrary
 import Calendar from "react-calendar";
-
+import "../css/Calendar.css"
 function MiniCalendar({ CalendarClick }) {
   const [
     todolist,

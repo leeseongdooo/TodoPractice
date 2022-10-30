@@ -1,11 +1,13 @@
 import React, { useContext, useEffect, useState } from "react";
 import { BsChevronDoubleRight, BsTrash } from "react-icons/bs";
-import "../css/TodoListArea.scss";
+import { BiInfoCircle } from "react-icons/bi";
 import { TodoContext } from "./Store";
 import { RightSideContext } from "./Context/RightSide";
 import { AiOutlineStar, AiFillStar } from "react-icons/ai";
 import { GrCheckbox, GrCheckboxSelected } from "react-icons/gr";
 import { HeaderContext } from "./Context/HeaderContext";
+import "../css/TodoListArea.scss";
+
 
 export function ListForm({ Info }) {
   const [
@@ -30,7 +32,7 @@ export function ListForm({ Info }) {
 
   const [] = useContext(TodoContext);
 
-  // id 정렬.
+  // ID를 정렬하는 함수 입니다. /
   const sortId = () => {
     for (let i = 0; i < todolist.length; i++) {
       if (todolist[i].id > Info.id) {
@@ -41,7 +43,7 @@ export function ListForm({ Info }) {
     }
   };
 
-  // checkBoxClick함수.
+  // TODO를 완료처리할 때 사용하는 함수 입니다.
   const CheckBoxClick = () => {
     todolist[Info.id - 1].finish = !todolist[Info.id - 1].finish;
     sortId();
@@ -59,17 +61,15 @@ export function ListForm({ Info }) {
     ]);
   };
 
+  // 삭제할 때 사용하는 함수 입니다.
   const DeleteTodo = () => {
-      sortId();
-      setTodoList(todolist.filter((info) => info.todoname !== Info.todoname))
-     if(Info.finish === true) {
-      sortId();
-      setDoneList(donelist.filter((info) => info.todoname !== Info.todoname))
-    }
+    sortId();
+    setTodoList(todolist.filter((info) => info.todoname !== Info.todoname))
+     
   }
 
+  // 다시 TODO로 돌아갈 때 사용하는 함수 입니다.
   const ReturnTodo = () => {
-
     donelist[Info.id - 1].finish = !donelist[Info.id - 1].finish;
 
     for (let i = 0; i < donelist.length; i++) {
@@ -79,7 +79,6 @@ export function ListForm({ Info }) {
       }
     }
     setDoneList(donelist.filter((Info) => Info.finish === true));
-
     setTodoList([
       ...todolist,
       {
@@ -90,7 +89,12 @@ export function ListForm({ Info }) {
         important: Info.important
       },
     ]);
+  }
 
+  // RightSlide가 보이게 하는 함수
+  const ShowRightArea = () => {
+    setRightSideChecked(true)
+    setRightSideInfo(Info);
   }
 
   useEffect(() => {
@@ -98,13 +102,7 @@ export function ListForm({ Info }) {
   }, [todolist]);
 
   return (
-    <div
-      className="ListFormArea"
-      onClick={(e) => {
-        setRightSideChecked(true);
-        setRightSideInfo(Info);
-      }}
-    >
+    <div className="ListFormArea">
       <div className="FrontBox">
         {Info.finish !== true ? (
           <GrCheckbox
@@ -124,6 +122,7 @@ export function ListForm({ Info }) {
       </div>
 
       <div className="IconBox">
+        <BiInfoCircle className="Icon" onClick={()=>{ShowRightArea()}}/>
         {Info.important === false ? (
           <AiOutlineStar
             className="Icon"

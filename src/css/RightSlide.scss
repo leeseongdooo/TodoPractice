@@ -1,95 +1,232 @@
-.RightSideArea {
-    right: 0;
-    background-color: #faf9f8;
-    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.5);
-    padding: 10px 20px;
-    width: 400px;
-    flex: 1;
-    display: none;
-    flex-direction: column;
-    justify-content: space-between;
-    .ButtonParentBox {
-      span {
-        font-size: 14px;
-        font-weight: 500;
-      }
+@media ( min-width: 1024px ) {
 
-      .Group {
-        margin-bottom: 10px;
-      }
-
-      .TextInfo {
-        margin-left: 15px;
-        font-size: 16px;
-        font-weight: 600;
-        outline: none; // cursor클릭시 아웃라인 안보이게
-        border: none;
-      }
-
-      .Solo {
-        margin-bottom: 10px;
-      }
-
-      .Button {
-        width: 100%;
-        padding: 10px 5px;
-        background-color: white;
-        display: flex;
-        align-items: center;
-        min-height: 20px;
-
-        input[type="checkbox"] {
-          margin: 5px;
-          width: 15px;
-          height: 15px;
+  .RightSideArea {
+      right: 0;
+      background-color: #faf9f8;
+      box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.5);
+      padding: 10px 20px;
+      width: 350px;
+      height: 100%;
+      flex: 1;
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      .ButtonParentBox {
+        span {
+          font-size: 14px;
+          font-weight: 500;
         }
+
+        .Group {
+          margin-bottom: 10px;
+        }
+
+        .TextInfo {
+          margin-left: 15px;
+          font-size: 16px;
+          font-weight: 600;
+          outline: none; // cursor클릭시 아웃라인 안보이게
+          border: none;
+        }
+
+        .Solo {
+          margin-bottom: 10px;
+        }
+
+        .Button {
+          width: 100%;
+          padding: 10px 5px;
+          background-color: white;
+          display: flex;
+          align-items: center;
+          min-height: 20px;
+
+          input[type="checkbox"] {
+            margin: 5px;
+            width: 15px;
+            height: 15px;
+          }
+
+          span {
+            margin-left: 15px;
+          }
+          cursor: pointer;
+        }
+
+        .Icon {
+          width: 20px;
+          height: 20px;
+          margin: 5px;
+        }
+
+        .RightSlideCalendar {
+          max-width: 100%;
+          background-color: white;
+
+          .calendar {
+            background-color: white;
+            border: none;
+            position: relative;
+            width: 100%;
+          }
+
+          .EditDateButton {
+            width: 100%;
+            cursor: pointer;
+            background-color: royalblue;
+            color: white;
+            font-weight: bold;
+            margin-top: 10px;
+            padding: 5px;
+            margin: 5px;
+            border-radius: 10px;
+            border: none;
+          }
+        }
+      }
+
+      .BottomArea {
+        border-top: 1px solid rgba(0, 0, 0, 0.5);
+        padding: 10px;
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
 
         span {
-          margin-left: 15px;
-        }
-        cursor: pointer;
-      }
-
-      .Icon {
-        width: 20px;
-        height: 20px;
-        margin: 5px;
-      }
-
-      .RightSlideCalendar {
-        max-width: 100%;
-        background-color: rgb(230, 230, 230);
-        .calendar {
-          background-color: rgb(230, 230, 230);
-          border: none;
-          position: relative;
-          width: 100%;
+          font-size: 16px;
         }
 
-        .EditDateButton {
-          position: relative;
-          right: 0;
-          margin-top: 10px;
-          padding: 5px;
-          border-radius: 10px;
+        .Icon {
+          cursor: pointer;
+          font-size: 24px;
         }
       }
     }
+  }
 
-    .BottomArea {
-      border-top: 1px solid rgba(0, 0, 0, 0.5);
-      padding: 10px;
-      align-items: center;
+  @media ( min-width: 320px) and (max-width: 720px) { 
+
+    // 뒷배경색
+    .ModalBackground {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.3)  ;
+    }
+
+
+    .RightSideArea {
+      position: fixed; // 설정 안하면 다른 영역이 깨진다.
+      height: 90%;
+      overflow-y: scroll;
+      width: calc(88% - 40px);
+      right: 0; // 오른쪽 고정
+      transition: 0.3s; // 애니메이션 효과
+      background-color: #faf9f8;
+      box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.5);
+      padding: 20px;
+      flex: 1;
       display: flex;
+      flex-direction: column;
       justify-content: space-between;
+      
+      .ButtonParentBox {
+        span {
+          font-size: 14px;
+          font-weight: 500;
+        }
 
-      span {
-        font-size: 16px;
+        .Group {
+          margin-bottom: 10px;
+        }
+
+        .TextInfo {
+          margin-left: 15px;
+          font-size: 16px;
+          font-weight: 600;
+          outline: none; // cursor클릭시 아웃라인 안보이게
+          border: none;
+        }
+
+        .Solo {
+          margin-bottom: 10px;
+        }
+
+        .Button {
+          width: 100%;
+          padding: 10px 5px;
+          background-color: white;
+          display: flex;
+          align-items: center;
+          min-height: 20px;
+
+          input[type="checkbox"] {
+            margin: 5px;
+            width: 15px;
+            height: 15px;
+          }
+
+          span {
+            margin-left: 15px;
+          }
+          cursor: pointer;
+        }
+
+        .Icon {
+          width: 20px;
+          height: 20px;
+          margin: 5px;
+        }
+
+        .RightSlideCalendar {
+          max-width: 100%;
+          background-color: white;
+
+          .calendar {
+            background-color: white;
+            border: none;
+            position: relative;
+            width: 100%;
+          }
+
+          .EditDateButton {
+            width: 100%;
+            cursor: pointer;
+            background-color: royalblue;
+            color: white;
+            font-weight: bold;
+            margin-top: 10px;
+            padding: 5px;
+            margin: 5px;
+            border-radius: 10px;
+            border: none;
+          }
+        }
       }
 
-      .Icon {
-        cursor: pointer;
-        font-size: 18px;
+      .BottomArea {
+        
+        border-top: 1px solid rgba(0, 0, 0, 0.5);
+        padding: 10px 0px;
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+
+        span {
+          font-size: 16px;
+        }
+
+        .Icon {
+          cursor: pointer;
+          font-size: 24px;
+        }
       }
     }
+
+    // 스크롤바 안보이게 하기 위해 설정.
+    .RightSideArea::-webkit-scrollbar {
+      display: none;
+    }
+
+
   }

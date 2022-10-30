@@ -1,40 +1,85 @@
-.HeaderParent {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  max-height: 50px;
-  background-color: royalblue;
-
-  .Left-Box {
-    margin: 5px;
-    width: 150px;
+@media ( min-width: 360px ) and (max-width: 760px) { 
+  .HeaderParent {
+    width: 100%;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    max-height: 50px;
+    background-color: royalblue;
 
-    .Icons {
-      margin: 0px 10px;
-      color: white;
-      font-size: 20px;
-      cursor: pointer;
+    .Left-Box {
+      margin: 5px;
+      width: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .Icons {
+        margin: 0px 10px;
+        color: white;
+        font-size: 20px;
+        cursor: pointer;
+      }
+
+      h2 {
+        font-size: 20px;
+        color: white;
+      }
     }
 
-    h2 {
-      color: white;
+    .InputBox {
+      width: 65%;
+  
+      input {
+        width: 80%;
+        padding: 10px;
+        border-radius: 10px;
+        border: none;
+        font-size: 12px;
+      }
     }
   }
+}
 
-  .InputBox {
-    width: 65%;
+@media ( min-width: 1024px ) {
+  .HeaderParent {
+    width: 100%;
     display: flex;
-    justify-content: left;
+    align-items: center;
+    justify-content: space-between;
+    max-height: 50px;
+    background-color: royalblue;
 
-    input {
-      width: 500px;
-      padding: 10px;
-      border-radius: 10px;
-      border: none;
+    .Left-Box {
+      margin: 5px;
+      width: 150px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .Icons {
+        margin: 0px 10px;
+        color: white;
+        font-size: 20px;
+        cursor: pointer;
+      }
+
+      h2 {
+        color: white;
+      }
+    }
+
+    .InputBox {
+      width: 65%;
+      display: flex;
+      justify-content: left;
+
+      input {
+        width: 500px;
+        padding: 10px;
+        border-radius: 10px;
+        border: none;
+      }
     }
   }
 }

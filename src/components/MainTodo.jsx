@@ -6,14 +6,12 @@ import { BsLightbulb, BsSun } from "react-icons/bs";
 
 // Component
 import WriteArea from "./WriteArea";
-import NoList from "./NoList";
 import TodoListArea from "./TodoListArea";
 import DoneListArea from "./DoneListArea";
 import { RightSlide } from "./RightSlide";
 
 // React.
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
 import LeftSlide from "./LeftSlide";
 import { useLocation } from "react-router-dom";
 import ImportantArea from "./ImportantArea";
@@ -38,11 +36,7 @@ function MainTodo() {
 
   return (
     <div className="MainTodoFlex">
-      {ShowLeftSlide === true ? (
-        <LeftSlide setShowLeftSlide={setShowLeftSlide} />
-      ) : (
-        <></>
-      )}
+      <LeftSlide setShowLeftSlide={setShowLeftSlide} ShowLeftSlide={ShowLeftSlide} />
       {/* MainTodoFlex = Main영역의 가장 큰 div. */}
       {/* 여기에 사이드 메뉴가 들어가면 될듯. */}
       <div className="MainTodoBox">
@@ -67,12 +61,12 @@ function MainTodo() {
             </div>
           </div>
 
-          <div className="IconBox">
+          {/* <div className="IconBox">
             <BiSort className="Icon" />
             <span>정렬</span>
             <BsLightbulb className="Icon" />
             <span className="Plan">일정 계획</span>
-          </div>
+          </div> */}
         </div>
 
 
@@ -92,7 +86,10 @@ function MainTodo() {
       </div>
 
       {/* RightSlide는 오른쪽 슬라이드 메뉴바[수정기능이 있는]를 담당합니다. */}
-      <RightSlide />
+      
+        <RightSlide />  
+     
+      
     </div>
   );
 }

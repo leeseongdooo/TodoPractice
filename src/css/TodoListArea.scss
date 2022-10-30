@@ -1,3 +1,5 @@
+@media ( min-width: 1024px ) {
+
 .TodoListArea {
   margin-left: 10px;
   width: 100%;
@@ -44,4 +46,5 @@
   .ListFormArea:hover {
     background-color: rgba(219, 219, 219, 0.5);
   }
+}
 }
