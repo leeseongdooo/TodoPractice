@@ -8,6 +8,12 @@
 - 사용기술 : React, scss
 
 ---
+사용화면
+
+![TODO](https://user-images.githubusercontent.com/80968281/199035065-46b02499-c9a8-4dcd-9baf-9ce097960622.gif)
+
+---
+
 ### 기능설명
 
 - TODO를 입력하여 추가할 수 있습니다.
