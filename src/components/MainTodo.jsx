@@ -33,10 +33,12 @@ function MainTodo() {
     console.log(ShowLeftSlide);
   }, [ShowLeftSlide]);
 
-
   return (
     <div className="MainTodoFlex">
-      <LeftSlide setShowLeftSlide={setShowLeftSlide} ShowLeftSlide={ShowLeftSlide} />
+      <LeftSlide
+        setShowLeftSlide={setShowLeftSlide}
+        ShowLeftSlide={ShowLeftSlide}
+      />
       {/* MainTodoFlex = Main영역의 가장 큰 div. */}
       {/* 여기에 사이드 메뉴가 들어가면 될듯. */}
       <div className="MainTodoBox">
@@ -55,36 +57,54 @@ function MainTodo() {
             )}
             <div>
               <h3>
-                {testParam.pathname === "/Important" ? "중요" : testParam.pathname === "/Schedule" ? "계획된 일정" :"오늘 할 일"}
+                {testParam.pathname === "/Important"
+                  ? "중요"
+                  : testParam.pathname === "/Schedule"
+                  ? "계획된 일정"
+                  : "오늘 할 일"}
               </h3>
               <span className="TodayString">{TodayString}</span>
             </div>
           </div>
-
-       
         </div>
 
-
         {/* WriteArea는 새로운 TODO의 TODO명, 날짜, 알림설정을 할 수 있는 영역입니다. */}
-        {testParam.pathname === "/" ? <WriteArea Today={TodayString} /> : <div></div>}
+        {testParam.pathname === "/" ? (
+          <WriteArea Today={TodayString} />
+        ) : (
+          <div></div>
+        )}
 
         {/* WriteArea에서 작성한 정보는 TODOListArea, DoneListArea에 값이 전달된 후 화면에 출력됩니다. */}
-        <div className="ListParentArea">
-          <div style={testParam.pathname === "/" ? {} : {display: "none"}}>
+        <div
+          className="ListParentArea"
+          style={
+            testParam.pathname === "/"
+              ? { margin: "60px 0px 0px 0px" }
+              : { margin: "0px 0px 0px 0px" }
+          }
+        >
+          <div style={testParam.pathname === "/" ? {} : { display: "none" }}>
             <TodoListArea />
             <DoneListArea />
           </div>
-          
-          {testParam.pathname === "/Important" ? <ImportantArea pathname={testParam.pathname} /> : <></> }
-          {testParam.pathname === "/Schedule" ? <Schedule pathname={testParam.pathname} /> : <></>}
+
+          {testParam.pathname === "/Important" ? (
+            <ImportantArea pathname={testParam.pathname} />
+          ) : (
+            <></>
+          )}
+          {testParam.pathname === "/Schedule" ? (
+            <Schedule pathname={testParam.pathname} />
+          ) : (
+            <></>
+          )}
         </div>
       </div>
 
       {/* RightSlide는 오른쪽 슬라이드 메뉴바[수정기능이 있는]를 담당합니다. */}
-      
-        <RightSlide />  
-     
-      
+
+      <RightSlide />
     </div>
   );
 }

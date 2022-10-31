@@ -1,65 +1,121 @@
-
-@media ( min-width: 1024px ) {
-.ScheduleParent {
+@media (min-width: 1024px) {
+  .ScheduleParent {
     width: 100%;
-    
+
     .ScheduleInsideBox {
-    margin-left: 40px;
-    
-    // ListBox에 대한 css
-    .ListBox {
-    display: flex;
-    align-items: center;
-    cursor: pointer;
+      margin-left: 40px;
+
+      // ListBox에 대한 css
+      .ListBox {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+      }
+
+      // List가 한개도 없다면.
+      .NoListBox {
+        display: none;
+      }
+
+      // 화살표에 대한 css
+      .Arrow {
+        font-size: 18px;
+        transition: 0.3s;
+      }
+
+      // Arrow가 활성화 됐다면 아래
+      .Active {
+        transform: rotate(90deg);
+      }
+
+      .ListActive {
+        border: 1px solid black;
+      }
+
+      .NoListActive {
+        display: none;
+      }
+
+      .ListArea {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .TodolistInfoText {
+        display: flex;
+        flex-direction: column;
+
+        // 투두명에 대한 스타일입니다.
+        .TodoNameText {
+          font-size: 18px;
+        }
+
+        // 마감기한에 대한 스타일입니다.
+        .DeadLineText {
+          font-size: 12px;
+          color: #667799;
+        }
+      }
     }
-    
-    // List가 한개도 없다면.
-    .NoListBox {
-    display: none;
+  }
+}
+
+@media (min-width: 360px) and (max-width: 760px) {
+  .ScheduleParent {
+    width: 100%;
+
+    .ScheduleInsideBox {
+      // ListBox에 대한 css
+      .ListBox {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+      }
+
+      // List가 한개도 없다면.
+      .NoListBox {
+        display: none;
+      }
+
+      // 화살표에 대한 css
+      .Arrow {
+        font-size: 18px;
+        transition: 0.3s;
+      }
+
+      // Arrow가 활성화 됐다면 아래
+      .Active {
+        transform: rotate(90deg);
+      }
+
+      .ListActive {
+        border: 1px solid black;
+      }
+
+      .NoListActive {
+        display: none;
+      }
+
+      .ListArea {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .TodolistInfoText {
+        display: flex;
+        flex-direction: column;
+
+        // 투두명에 대한 스타일입니다.
+        .TodoNameText {
+          font-size: 18px;
+        }
+
+        // 마감기한에 대한 스타일입니다.
+        .DeadLineText {
+          font-size: 12px;
+          color: #667799;
+        }
+      }
     }
-    
-    // 화살표에 대한 css
-    .Arrow {
-    font-size: 18px;
-    transition: 0.3s;
-    }
-    
-    h4 {
-    }
-    
-    // Arrow가 활성화 됐다면 아래
-    .Active {
-    transform: rotate(90deg);
-    }
-    
-    .ListActive {
-    border: 1px solid black;
-    }
-    
-    .NoListActive {
-    display: none;
-    }
-    
-    .ListArea {
-    display: flex;
-    flex-direction: column;
-    }
-    
-    .TodolistInfoText {
-    display: flex;
-    flex-direction: column;
-    
-    // 투두명에 대한 스타일입니다.
-    .TodoNameText {
-    font-size: 18px;
-    }
-    
-    // 마감기한에 대한 스타일입니다.
-    .DeadLineText {
-    font-size: 12px;
-    color: #667799;
-    }
-    }
-    }
-    }
+  }
 }

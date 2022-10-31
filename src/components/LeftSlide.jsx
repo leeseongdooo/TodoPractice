@@ -13,8 +13,6 @@ import "../css/LeftSlide.scss";
 import { TodoContext } from "./Store";
 
 function LeftSlide({ setShowLeftSlide, ShowLeftSlide }) {
-
-
   const [
     todolist,
     setTodoList,
@@ -23,24 +21,27 @@ function LeftSlide({ setShowLeftSlide, ShowLeftSlide }) {
     setDoneList,
     setDateString,
     setImportant,
-    ImportantCount, 
-    setImportantCount
+    ImportantCount,
+    setImportantCount,
   ] = useContext(TodoContext);
   const [ImportantList, setImportantList] = useState([]);
-  
 
   const CountCheck = () => {
-   setImportantList(todolist.filter((Info) => Info.important === true));
-  }
+    setImportantList(todolist.filter((Info) => Info.important === true));
+  };
 
-  useEffect(()=>{
+  useEffect(() => {
     CountCheck();
-  }, [ImportantCount])
-  
-  console.log(ImportantList)
-  console.log(ShowLeftSlide)
+  }, [ImportantCount]);
+
+  console.log(ImportantList);
+  console.log(ShowLeftSlide);
   return (
-    <div className={ShowLeftSlide === true ? "LeftSideArea Active" : "LeftSideArea NoActive"}>
+    <div
+      className={
+        ShowLeftSlide === true ? "LeftSideArea Active" : "LeftSideArea NoActive"
+      }
+    >
       <div className="TopArea">
         <AiOutlineMenu
           className="Icons Menu-Icon"
@@ -50,7 +51,12 @@ function LeftSlide({ setShowLeftSlide, ShowLeftSlide }) {
         />
 
         {/* 오늘 할 일 */}
-        <Link to="/">
+        <Link
+          to="/"
+          onClick={() => {
+            setShowLeftSlide(false);
+          }}
+        >
           <div className="Inner-Item">
             <BsSun className="Icons" />
             <span>오늘 할 일</span>
@@ -58,7 +64,12 @@ function LeftSlide({ setShowLeftSlide, ShowLeftSlide }) {
         </Link>
 
         {/* 중요 */}
-        <Link to="/Important">
+        <Link
+          to="/Important"
+          onClick={() => {
+            setShowLeftSlide(false);
+          }}
+        >
           <div className="Inner-Item">
             <AiOutlineStar className="Icons" />
             <span>중요</span>
@@ -66,14 +77,18 @@ function LeftSlide({ setShowLeftSlide, ShowLeftSlide }) {
         </Link>
 
         {/* 계획된 일정 */}
-        <Link to="/Schedule" >
+        <Link
+          to="/Schedule"
+          onClick={() => {
+            setShowLeftSlide(false);
+          }}
+        >
           <div className="Inner-Item">
             <AiTwotoneCalendar className="Icons" />
             <span>계획된 일정</span>
           </div>
         </Link>
-
-       </div>
+      </div>
     </div>
   );
 }

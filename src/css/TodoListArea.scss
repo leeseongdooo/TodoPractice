@@ -1,50 +1,96 @@
-@media ( min-width: 1024px ) {
+@media (min-width: 1024px) {
+  .TodoListArea {
+    margin-left: 10px;
+    width: 100%;
 
-.TodoListArea {
-  margin-left: 10px;
-  width: 100%;
-
-  // >> TODOLIST 부분
-  .TopIntroduceArea {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-
-    span {
-      margin-left: 10px;
-      font-size: 16px;
-      font-weight: 500;
-    }
-  }
-
-  .ListFormArea {
-    .Icon {
-      min-width: 20px;
-      min-height: 20px;
-      
-    }
-
-    // 투두리스트 (투두명, 마감기한)에 대한 정보를 담아주는 div입니다.
-    .TodolistInfoText {
+    // >> TODOLIST 부분
+    .TopIntroduceArea {
       display: flex;
-      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
 
-      // 투두명에 대한 스타일입니다.
-      .TodoNameText {
-        font-size: 18px;
-      }
-
-      // 마감기한에 대한 스타일입니다.
-      .DeadLineText {
-        font-size: 12px;
-        color: #667799;
+      span {
+        margin-left: 10px;
+        font-size: 16px;
+        font-weight: 500;
       }
     }
-  }
 
-  // hover시 배경색 변경.
-  .ListFormArea:hover {
-    background-color: rgba(219, 219, 219, 0.5);
+    .ListFormArea {
+      .Icon {
+        min-width: 20px;
+        min-height: 20px;
+      }
+
+      // 투두리스트 (투두명, 마감기한)에 대한 정보를 담아주는 div입니다.
+      .TodolistInfoText {
+        display: flex;
+        flex-direction: column;
+
+        // 투두명에 대한 스타일입니다.
+        .TodoNameText {
+          font-size: 18px;
+        }
+
+        // 마감기한에 대한 스타일입니다.
+        .DeadLineText {
+          font-size: 12px;
+          color: #667799;
+        }
+      }
+    }
+
+    // hover시 배경색 변경.
+    .ListFormArea:hover {
+      background-color: rgba(219, 219, 219, 0.5);
+    }
   }
 }
+
+@media (min-width: 360px) and (max-width: 760px) {
+  .TodoListArea {
+    width: 100%;
+    margin-bottom: 20px;
+    // >> TODOLIST 부분
+    .TopIntroduceArea {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+
+      span {
+        margin-left: 10px;
+        font-size: 16px;
+        font-weight: 500;
+      }
+    }
+
+    .ListFormArea {
+      .Icon {
+        min-width: 20px;
+        min-height: 20px;
+      }
+
+      // 투두리스트 (투두명, 마감기한)에 대한 정보를 담아주는 div입니다.
+      .TodolistInfoText {
+        display: flex;
+        flex-direction: column;
+
+        // 투두명에 대한 스타일입니다.
+        .TodoNameText {
+          font-size: 18px;
+        }
+
+        // 마감기한에 대한 스타일입니다.
+        .DeadLineText {
+          font-size: 12px;
+          color: #667799;
+        }
+      }
+    }
+
+    // hover시 배경색 변경.
+    .ListFormArea:hover {
+      background-color: rgba(219, 219, 219, 0.5);
+    }
+  }
 }
